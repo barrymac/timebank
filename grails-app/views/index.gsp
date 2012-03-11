@@ -1,100 +1,174 @@
 <html>
-    <head>
-        <title>Welcome to Grails</title>
-        <meta name="layout" content="main" />
-        <style type="text/css" media="screen">
+<head>
+    <title>Welcome to TasteBud - Accounting for taste</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="layout" content="main"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-        #nav {
-            margin-top:20px;
-            margin-left:30px;
-            width:228px;
-            float:left;
+            $('#googleLogin').click(function () {
+                $('#openIdLoginForm').submit();
+            });
 
-        }
-        .homePagePanel * {
-            margin:0px;
-        }
-        .homePagePanel .panelBody ul {
-            list-style-type:none;
-            margin-bottom:10px;
-        }
-        .homePagePanel .panelBody h1 {
-            text-transform:uppercase;
-            font-size:1.1em;
-            margin-bottom:10px;
-        }
-        .homePagePanel .panelBody {
-            background: url(images/leftnav_midstretch.png) repeat-y top;
-            margin:0px;
-            padding:15px;
-        }
-        .homePagePanel .panelBtm {
-            background: url(images/leftnav_btm.png) no-repeat top;
-            height:20px;
-            margin:0px;
-        }
+            $('#facebookLogin').click(function () {
+                $('#facebookLoginForm').submit();
+            });
 
-        .homePagePanel .panelTop {
-            background: url(images/leftnav_top.png) no-repeat top;
-            height:11px;
-            margin:0px;
-        }
-        h2 {
-            margin-top:15px;
-            margin-bottom:15px;
-            font-size:1.2em;
-        }
-        #pageBody {
-            margin-left:280px;
-            margin-right:20px;
-        }
-        </style>
-    </head>
-    <body>
-        <div id="nav">
-            <div class="homePagePanel">
-                <div class="panelTop"></div>
-                <div class="panelBody">
-                    <h1>Application Status</h1>
+//$('#openIdLoginForm').submit(function() {
+//  alert('Handler for .submit() called.');
+//  return false;
+//});
+        });
+    </script>
+    %{--<g:include view="gspJsSnips/tagsAutoMultiJs.gsp"/>--}%
+</head>
+
+<body>
+%{--<div class="container showgrid">--}%
+<sec:ifLoggedIn>
+    <div class="col col-13 align_center">
+        %{--<div class="row">--}%
+        <br>
+        <h4>Your home page</h4>
+        <hr>
+        <br>
+        %{--</div>--}%
+        <div class="row  ">
+            <div class="col col-1"></div>
+
+            <div class="col align_center">
+                <h5>content</h5>
+
+                <p></p>
+            </div>
+        </div>
+        %{--<div class="row">--}%
+        <h5>Your Jobs</h5>
+
+        <p></p>
+        %{--</div>--}%
+    </div>
+</sec:ifLoggedIn>
+
+<sec:ifNotLoggedIn>
+    <div class="row ">
+        <div id="pgBody" class="align_center">
+            <div id="pgBodyTitle" class="row">
+                <div class="col col-10">
+                    <h2>Welcome to TimeBank!</h2>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="row ">
+                <div class="col col-10">
+                    We use openid which means you can log in or register with an existing account just by clicking the logo.
+                </div>
+                <br><br>
+
+                <div id="googleLoginFrm" class="col col-1">
+                    <form action='${request.contextPath}/j_spring_openid_security_check' method='POST'
+                          name='openIdLoginForm'
+                          id="openIdLoginForm">
+                        <div class="col col-1 rounded">
+                            <img id="googleLogin" src="images/GoogleLogo.png" alt="Log In With Google">
+                        </div>
+                        <input type="hidden" id="openid_identifier" name="openid_identifier" class="title"
+                               value="https://www.google.com/accounts/o8/id">
+                    </form>
+                </div>
+
+                %{--<div class="col col-1 rounded"><g:link controller="login" action="auth"><img--}%
+                %{--src="images/login-button-big.gif" alt="Log In"></g:link></div>--}%
+
+                %{--<div id="fbLoginFrm" class="col col-1">--}%
+                %{--<form action='${request.contextPath}/j_spring_openid_security_check' technique='POST'--}%
+                %{--autocomplete='off' name='facebookLoginForm'--}%
+                %{--id="facebookLoginForm">--}%
+                %{--<div class="col col-1 rounded">--}%
+                %{--<img id="facebookLogin" src="images/facebooklogo.png" alt="Log In With Facebook">--}%
+                %{--</div>--}%
+                %{--<input type="hidden" id="openid_identifier" name="openid_identifier" class="title"--}%
+                %{--value="https://facebook.anyopenid.com">--}%
+                %{--</form>--}%
+
+                %{--</div>--}%
+
+                <br><br>
+                <br><br>
+
+                <div class="col col-10">
+                    We will be adding more providers in the near future
+                </div>
+            </div>
+            <br><br>
+
+            %{--<div class="row">--}%
+            %{--<td><div class="selectOnClick">https://www.google.com/accounts/o8/id</div>(already filled in)</td>--}%
+            %{--<div class="row rounded">--}%
+            %{--<div class="col col-1">&nbsp;</div>--}%
+
+            %{--<div id="googleLoginFrm" class="col col-1">--}%
+            %{--<form action='${request.contextPath}/j_spring_openid_security_check' method='POST'--}%
+            %{--autocomplete='off'--}%
+            %{--name='openIdLoginForm'--}%
+            %{--id="openIdLoginForm">--}%
+            %{--<div class="col col-1 rounded">--}%
+            %{--<img id="googleLogin" src="images/GoogleLogo.png" alt="Log In With Google">--}%
+            %{--</div>--}%
+            %{--<input type="hidden" id="openid_identifier" name="openid_identifier" class="title"--}%
+            %{--value="https://www.google.com/accounts/o8/id">--}%
+            %{--</form>--}%
+            %{--</div>--}%
+
+            %{--<div class="col col-1 rounded"><g:link controller="login" action="auth"><img--}%
+            %{--src="images/login-button-big.gif" alt="Log In"></g:link></div>--}%
+
+            %{--<div id="fbLoginFrm" class="col col-1">--}%
+            %{--<form action='${request.contextPath}/j_spring_openid_security_check' technique='POST'--}%
+            %{--autocomplete='off' name='facebookLoginForm'--}%
+            %{--id="facebookLoginForm">--}%
+            %{--<div class="col col-1 rounded">--}%
+            %{--<img id="facebookLogin" src="images/facebooklogo.png" alt="Log In With Facebook">--}%
+            %{--</div>--}%
+            %{--<input type="hidden" id="openid_identifier" name="openid_identifier" class="title"--}%
+            %{--value="https://facebook.anyopenid.com">--}%
+            %{--</form>--}%
+
+            %{--</div>--}%
+
+            %{--</div>--}%
+
+            %{--<div class="row">--}%
+            %{--<div class="col col-10 rounded">--}%
+            %{--<br>--}%
+            %{--We will be adding more openId providers in the near future such as Facebook or Microsoft Live.--}%
+            %{--<br>--}%
+            %{--If you are a new user then you will be shown a registration page which is very simple.--}%
+            %{--We won't demand loads of information from you or send you loads of emails.--}%
+            %{--The more information you tell us about what you like of course the more we can tailor your experience of the site.--}%
+            %{--</div>--}%
+            %{--</div>--}%
+            %{--</div>--}%
+
+            <div class="row ">
+                <div class="col col-10">
+                    <h2>A few things about the site</h2>
                     <ul>
-                        <li>App version: <g:meta name="app.version"></g:meta></li>
-                        <li>Grails version: <g:meta name="app.grails.version"></g:meta></li>
-                        <li>Groovy version: ${org.codehaus.groovy.runtime.InvokerHelper.getVersion()}</li>
-                        <li>JVM version: ${System.getProperty('java.version')}</li>
-                        <li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-                        <li>Domains: ${grailsApplication.domainClasses.size()}</li>
-                        <li>Services: ${grailsApplication.serviceClasses.size()}</li>
-                        <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-                    </ul>
-                    <h1>Installed Plugins</h1>
-                    <ul>
-                        <g:set var="pluginManager"
-                               value="${applicationContext.getBean('pluginManager')}"></g:set>
-
-                        <g:each var="plugin" in="${pluginManager.allPlugins}">
-                            <li>${plugin.name} - ${plugin.version}</li>
-                        </g:each>
-
                     </ul>
                 </div>
-                <div class="panelBtm"></div>
             </div>
-        </div>
-        <div id="pageBody">
-            <h1>Welcome to Grails</h1>
-            <p>Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display whatever
-            content you may choose. Below is a list of controllers that are currently deployed in this application,
-            click on each to execute its default action:</p>
 
-            <div id="controllerList" class="dialog">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                </ul>
+            <div class="row ">
+                <div class="col col-10">
+                    <h2>A few things about us</h2>
+                    <ul>
+                    </ul>
+                </div>
             </div>
+
         </div>
-    </body>
+    </div>
+</sec:ifNotLoggedIn>
+</body>
 </html>
