@@ -4,7 +4,6 @@ class Job {
 
 //    DTim startTime
 
-
     static constraints = {
     }
 }
