@@ -88,3 +88,12 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'timebank.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'timebank.UserRole'
+grails.plugins.springsecurity.authority.className = 'timebank.Role'
+grails.plugins.springsecurity.rememberMe.persistent = true
+grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'timebank.PersistentLogin'
+
+grails.plugins.springsecurity.openid.domainClass = 'timebank.OpenID'
