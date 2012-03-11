@@ -1,8 +1,11 @@
 package timebank
 
+import org.joda.time.DateTime
+
 class Job {
 
-//    DTim startTime
+    DateTime startTime
+    DateTime endTime
 
     static constraints = {
     }
