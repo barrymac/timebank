@@ -153,7 +153,7 @@
 
             <div class="row ">
                 <div class="col col-10">
-                    <h2>A few things about the site</h2>
+                    %{--<h2>A few things about the site</h2>--}%
                     <ul>
                     </ul>
                 </div>
@@ -161,7 +161,7 @@
 
             <div class="row ">
                 <div class="col col-10">
-                    <h2>A few things about us</h2>
+                    %{--<h2>A few things about us</h2>--}%
                     <ul>
                     </ul>
                 </div>
