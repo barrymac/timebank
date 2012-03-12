@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69a29204-034e-42f4-b7bc-45952fdc61d9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/controllers/timebank/RequestController.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/Request.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/constuction.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/request/create.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/request/edit.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/request/list.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/request/show.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/create.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/edit.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/list.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/user/show.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/scaffolding/renderEditor.template" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/timebank/RequestControllerTests.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/timebank/RequestTests.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/timebank/Job.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/Job.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/index.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/job/create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/job/create.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/job/edit.gsp" afterPath="$PROJECT_DIR$/grails-app/views/job/edit.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/job/list.gsp" afterPath="$PROJECT_DIR$/grails-app/views/job/list.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/job/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/job/show.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timebank-grailsPlugins.iml" afterPath="$PROJECT_DIR$/timebank-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timebank.iml" afterPath="$PROJECT_DIR$/timebank.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
     </list>
     <ignored path="timebank.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -169,10 +144,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.gsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="46" selection-start="3646" selection-end="3646" vertical-scroll-proportion="0.58474576">
+            <state line="51" column="17" selection-start="2619" selection-end="2619" vertical-scroll-proportion="-3.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataSource.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="0.354067">
               <folding />
             </state>
           </provider>
@@ -181,7 +165,7 @@
       <file leaf-file-name="UrlMappings.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="32" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
+            <state line="20" column="33" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -190,7 +174,7 @@
       <file leaf-file-name="constuction.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/constuction.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="33" selection-start="430" selection-end="430" vertical-scroll-proportion="-10.0">
+            <state line="17" column="33" selection-start="431" selection-end="431" vertical-scroll-proportion="-10.0">
               <folding />
             </state>
           </provider>
@@ -213,7 +197,7 @@
       <file leaf-file-name="User.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="45" selection-start="550" selection-end="550" vertical-scroll-proportion="-5.7954545">
+            <state line="24" column="45" selection-start="586" selection-end="586" vertical-scroll-proportion="-5.7954545">
               <folding>
                 <element signature="e#18#47#0" expanded="true" />
               </folding>
@@ -221,15 +205,6 @@
           </provider>
           <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-ui-0.1.2/grails-app/controllers/grails/plugins/springsecurity/ui/UserController.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="34" selection-start="1169" selection-end="1169" vertical-scroll-proportion="-19.565218">
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -259,6 +234,7 @@
         <option value="$PROJECT_DIR$/grails-app/views/constuction.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
       </list>
     </option>
   </component>
@@ -638,7 +614,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="got registration working, simplified home page, added search plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorted out some 404 page, enhanced domain objects, improved layout, added joda fields to various objects" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -656,6 +632,7 @@
     <MESSAGE value="added 52fwm, jqMenu , some images and icons, some changes to openid controller to get registration working, but not finished yet" />
     <MESSAGE value="added more missing resources for frameworks" />
     <MESSAGE value="got registration working, simplified home page, added search plugin" />
+    <MESSAGE value="sorted out some 404 page, enhanced domain objects, improved layout, added joda fields to various objects" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -695,13 +672,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/OpenIdController.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="172" column="0" selection-start="6174" selection-end="6174" vertical-scroll-proportion="-14.652174">
@@ -761,7 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="45" selection-start="550" selection-end="550" vertical-scroll-proportion="-5.7954545">
+        <state line="24" column="45" selection-start="586" selection-end="586" vertical-scroll-proportion="-5.7954545">
           <folding>
             <element signature="e#18#47#0" expanded="true" />
           </folding>
@@ -799,14 +769,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/constuction.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="430" selection-end="430" vertical-scroll-proportion="-10.0">
+        <state line="17" column="33" selection-start="431" selection-end="431" vertical-scroll-proportion="-10.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="32" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
+        <state line="20" column="33" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -820,7 +790,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="46" selection-start="3646" selection-end="3646" vertical-scroll-proportion="0.58474576">
+        <state line="51" column="17" selection-start="2619" selection-end="2619" vertical-scroll-proportion="-3.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="0.354067">
           <folding />
         </state>
       </provider>
