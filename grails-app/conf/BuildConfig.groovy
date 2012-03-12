@@ -24,6 +24,12 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
+        compile "org.jadira.usertype:usertype.jodatime:1.9"
+
+        compile("joda-time:joda-time-hibernate:1.2") {
+            excludes "joda-time", "hibernate"
+        }
+
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.13'

@@ -1,9 +1,9 @@
-<%@ page import="timebank.Job" %>
+<%@ page import="timebank.Request" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'job.label', default: 'Job')}"/>
+    <g:set var="entityName" value="${message(code: 'request.label', default: 'Request')}"/>
     <title><g:message code="default.edit.label" args="[entityName]"/></title>
 </head>
 
@@ -22,33 +22,54 @@
     <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
     </g:if>
-    <g:hasErrors bean="${jobInstance}">
+    <g:hasErrors bean="${requestInstance}">
         <div class="errors">
-            <g:renderErrors bean="${jobInstance}" as="list"/>
+            <g:renderErrors bean="${requestInstance}" as="list"/>
         </div>
     </g:hasErrors>
     <g:form method="post">
-        <g:hiddenField name="id" value="${jobInstance?.id}"/>
-        <g:hiddenField name="version" value="${jobInstance?.version}"/>
+        <g:hiddenField name="id" value="${requestInstance?.id}"/>
+        <g:hiddenField name="version" value="${requestInstance?.version}"/>
         <div class="dialog">
             <table>
                 <tbody>
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="endTime"><g:message code="job.endTime.label" default="End Time"/></label>
+                        <label for="complete"><g:message code="request.complete.label" default="Complete"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: jobInstance, field: 'endTime', 'errors')}">
-                        <joda:datePicker name="endTime" value="${jobInstance?.endTime}"></joda:datePicker>
+                    <td valign="top" class="value ${hasErrors(bean: requestInstance, field: 'complete', 'errors')}">
+                        <g:checkBox name="complete" value="${requestInstance?.complete}"/>
                     </td>
                 </tr>
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="startTime"><g:message code="job.startTime.label" default="Start Time"/></label>
+                        <label for="description"><g:message code="request.description.label"
+                                                            default="Description"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: jobInstance, field: 'startTime', 'errors')}">
-                        <joda:datePicker name="startTime" value="${jobInstance?.startTime}"></joda:datePicker>
+                    <td valign="top" class="value ${hasErrors(bean: requestInstance, field: 'description', 'errors')}">
+                        <g:textField name="description" value="${requestInstance?.description}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="timeEstimate"><g:message code="request.timeEstimate.label"
+                                                             default="Time Estimate"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: requestInstance, field: 'timeEstimate', 'errors')}">
+                        <joda:periodPicker name="timeEstimate"
+                                           value="${requestInstance?.timeEstimate}"></joda:periodPicker>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="title"><g:message code="request.title.label" default="Title"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: requestInstance, field: 'title', 'errors')}">
+                        <g:textField name="title" value="${requestInstance?.title}"/>
                     </td>
                 </tr>
 

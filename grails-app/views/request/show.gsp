@@ -1,9 +1,9 @@
-<%@ page import="timebank.Job" %>
+<%@ page import="timebank.Request" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'job.label', default: 'Job')}"/>
+    <g:set var="entityName" value="${message(code: 'request.label', default: 'Request')}"/>
     <title><g:message code="default.show.label" args="[entityName]"/></title>
 </head>
 
@@ -27,37 +27,52 @@
             <tbody>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="job.id.label" default="Id"/></td>
+                <td valign="top" class="name"><g:message code="request.id.label" default="Id"/></td>
 
-                <td valign="top" class="value">${fieldValue(bean: jobInstance, field: "id")}</td>
-
-            </tr>
-
-            <tr class="prop">
-                <td valign="top" class="name"><g:message code="job.dateCreated.label" default="Date Created"/></td>
-
-                <td valign="top" class="value">${fieldValue(bean: jobInstance, field: "dateCreated")}</td>
+                <td valign="top" class="value">${fieldValue(bean: requestInstance, field: "id")}</td>
 
             </tr>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="job.endTime.label" default="End Time"/></td>
+                <td valign="top" class="name"><g:message code="request.complete.label" default="Complete"/></td>
 
-                <td valign="top" class="value">${fieldValue(bean: jobInstance, field: "endTime")}</td>
-
-            </tr>
-
-            <tr class="prop">
-                <td valign="top" class="name"><g:message code="job.lastUpdated.label" default="Last Updated"/></td>
-
-                <td valign="top" class="value">${fieldValue(bean: jobInstance, field: "lastUpdated")}</td>
+                <td valign="top" class="value"><g:formatBoolean boolean="${requestInstance?.complete}"/></td>
 
             </tr>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="job.startTime.label" default="Start Time"/></td>
+                <td valign="top" class="name"><g:message code="request.dateCreated.label" default="Date Created"/></td>
 
-                <td valign="top" class="value">${fieldValue(bean: jobInstance, field: "startTime")}</td>
+                <td valign="top" class="value">${fieldValue(bean: requestInstance, field: "dateCreated")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="request.description.label" default="Description"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: requestInstance, field: "description")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="request.lastUpdated.label" default="Last Updated"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: requestInstance, field: "lastUpdated")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="request.timeEstimate.label"
+                                                         default="Time Estimate"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: requestInstance, field: "timeEstimate")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="request.title.label" default="Title"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: requestInstance, field: "title")}</td>
 
             </tr>
 
@@ -67,7 +82,7 @@
 
     <div class="buttons">
         <g:form>
-            <g:hiddenField name="id" value="${jobInstance?.id}"/>
+            <g:hiddenField name="id" value="${requestInstance?.id}"/>
             <span class="button"><g:actionSubmit class="edit" action="edit"
                                                  value="${message(code: 'default.button.edit.label', default: 'Edit')}"/></span>
             <span class="button"><g:actionSubmit class="delete" action="delete"

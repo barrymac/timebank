@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Welcome to TasteBud - Accounting for taste</title>
+    <title>Welcome to Timber Wharf TimeBank!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
     <script type="text/javascript">

@@ -1,42 +1,52 @@
 package timebank
 
+import org.joda.time.DateTime
+import org.joda.time.contrib.hibernate.PersistentLocalDate
+
 class User {
 
-	transient springSecurityService
+    static hasMany = [openIds: OpenID, jobsDone: Job, createRequests: Request]
+    transient springSecurityService
 
-	String username
-	String password
-	boolean enabled
-	boolean accountExpired
-	boolean accountLocked
-	boolean passwordExpired
+    String firstName
+    String secondName
+    DateTime dob
 
-    static hasMany = [openIds: OpenID]
+    String username
+    String password
+    boolean enabled
+    boolean accountExpired
+    boolean accountLocked
+    boolean passwordExpired
 
     static constraints = {
-		username blank: false, unique: true
-		password blank: true
-	}
+        username blank: false, unique: true
+        password blank: true
+        firstName blank: true, nullable: true
+        secondName blank: true, nullable: true
+        dob blank: true, nullable: true
+    }
 
-	static mapping = {
-		password column: '`password`'
-	}
+    static mapping = {
+        password column: '`password`'
+        dob type: PersistentLocalDate
+    }
 
-	Set<Role> getAuthorities() {
-		UserRole.findAllByUser(this).collect { it.role } as Set
-	}
+    Set<Role> getAuthorities() {
+        UserRole.findAllByUser(this).collect { it.role } as Set
+    }
 
-	def beforeInsert() {
-		encodePassword()
-	}
+    def beforeInsert() {
+        encodePassword()
+    }
 
-	def beforeUpdate() {
-		if (isDirty('password')) {
-			encodePassword()
-		}
-	}
+    def beforeUpdate() {
+        if (isDirty('password')) {
+            encodePassword()
+        }
+    }
 
-	protected void encodePassword() {
-		password = springSecurityService.encodePassword(password)
-	}
+    protected void encodePassword() {
+        password = springSecurityService.encodePassword(password)
+    }
 }

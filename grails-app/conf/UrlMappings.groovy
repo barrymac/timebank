@@ -1,6 +1,6 @@
 class UrlMappings {
 
-	static mappings = {
+    static mappings = {
         "/login/auth" {
             controller = 'openId'
             action = 'auth'
@@ -10,13 +10,14 @@ class UrlMappings {
             action = 'createAccount'
         }
 
-        "/$controller/$action?/$id?"{
-			constraints {
-				// apply constraints here
-			}
-		}
+        "/$controller/$action?/$id?" {
+            constraints {
+                // apply constraints here
+            }
+        }
 
-		"/"(view:"/index")
-		"500"(view:'/error')
-	}
+        "/"(view: "/index")
+        "500"(view: '/error')
+        "404"(view: '/constuction')
+    }
 }

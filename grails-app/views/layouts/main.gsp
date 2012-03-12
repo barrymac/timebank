@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><g:layoutTitle default="Grails"/></title>
+    <title><g:layoutTitle default="Timber Wharf Timebank"/></title>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"/>
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon2.ico')}" type="image/x-icon"/>
     <link rel="stylesheet" href="${resource(dir: 'css/52fw', file: 'css3.css')}" type="text/css"/>
@@ -48,22 +48,25 @@
     </div>
 
     <div id="menu" class="col col_3 align_left block" style="overflow: visible;">
-    <ul class="jd_menu jd_menu_vertical  jd_menu_slate align_left row rounded">
-        <sec:ifNotLoggedIn>
-            <li><g:link id="loginLnk" controller="home"
-                        action="promptLogin">Log In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</g:link></li>
-        </sec:ifNotLoggedIn>
+    <ul class="jd_menu jd_menu_vertical jd_menu_slate align_left row rounded">
+        %{--<sec:ifNotLoggedIn>--}%
+        %{--<li><g:link id="loginLnk" controller="home"--}%
+        %{--action="promptLogin">Log In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</g:link></li>--}%
+        %{--</sec:ifNotLoggedIn>--}%
+        <li>
+            <g:link elementId="homeLnk" url="${request.contextPath}">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</g:link>
+        </li>
         <sec:ifLoggedIn>
             <li></li>
             <li>Welcome <sec:username/> !</li>
-            <li>
-                <g:link elementId="homeLnk" controller="home" action="index">Home</g:link>
-            </li>
             <li><g:link controller="user" action="editProfile" params="">My Profile</g:link></li>
             <li><g:link controller="job" action="list" params="">My Jobs</g:link></li>
-            <li><g:link controller="searchable">Search</g:link></li>
             <li>
-                <g:link controller="job" action="create">Create a Request</g:link>
+                <g:link controller="request" action="create">Create a Request</g:link>
+            </li>
+            <li>
+                <g:link controller="request" action="list">Browse Requests</g:link>
             </li>
             <sec:ifAllGranted roles="ROLE_ADMIN,ROLE_SUPERVISOR">
                 <li><g:link controller="tag" action="create">Create a tag</g:link></li>
