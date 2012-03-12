@@ -10,7 +10,8 @@
     %{--<link rel="stylesheet" href="${resource(dir:'css/52fw',file:'forms.css')}" type="text/css" />--}%
     <script src="${resource(dir: 'js/52fw', file: 'selectivizr.js')}"></script>
     <script src="${resource(dir: 'js/52fw', file: 'modernizr-1.7.min.js')}"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
+          type="text/css"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
     <script src="${resource(dir: 'js/jdMenu', file: 'jquery.positionBy.js')}"></script>
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-<div id="mainBodyDiv" class="row rounded header align_center">
+<div id="mainBodyDiv" class="row header align_center">
     <div id="titleDiv" class="col col_16">
         <div class="top">
             <a href="${request.contextPath}">
@@ -53,12 +54,11 @@
                         action="promptLogin">Log In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</g:link></li>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
+            <li></li>
+            <li>Welcome <sec:username/> !</li>
             <li>
                 <g:link elementId="homeLnk" controller="home" action="index">Home</g:link>
             </li>
-            Welcome <sec:username/> !
-            <br>
-            <br>
             <li><g:link controller="user" action="editProfile" params="">My Profile</g:link></li>
             <li><g:link controller="job" action="list" params="">My Jobs</g:link></li>
             <li><g:link controller="searchable">Search</g:link></li>

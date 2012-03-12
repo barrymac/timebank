@@ -24,29 +24,22 @@
 </head>
 
 <body>
-%{--<div class="container showgrid">--}%
 <sec:ifLoggedIn>
-    <div class="col col-13 align_center">
-        %{--<div class="row">--}%
-        <br>
-        <h4>Your home page</h4>
-        <hr>
-        <br>
-        %{--</div>--}%
-        <div class="row  ">
-            <div class="col col-1"></div>
+    <div class="row ">
+        <div class="col col-15 align_center">
+            %{--<div class="row">--}%
+            <br>
+            <h4>Personal home page</h4>
+            <br>
+            %{--</div>--}%
+            <div class="row">
+                <div class="col col-1"></div>
 
-            <div class="col align_center">
-                <h5>content</h5>
-
-                <p></p>
+                <div class="col align_center">
+                    <p>some content, recent jobs, friends ?</p>
+                </div>
             </div>
         </div>
-        %{--<div class="row">--}%
-        <h5>Your Jobs</h5>
-
-        <p></p>
-        %{--</div>--}%
     </div>
 </sec:ifLoggedIn>
 
@@ -55,7 +48,8 @@
         <div id="pgBody" class="align_center">
             <div id="pgBodyTitle" class="row">
                 <div class="col col-10">
-                    <h2>Welcome to TimeBank!</h2>
+                    <br><br><br>
+                    <h4>Welcome to TimeBank!</h4>
                 </div>
             </div>
             <br><br>
@@ -98,7 +92,7 @@
                 <br><br>
 
                 <div class="col col-10">
-                    We will be adding more providers in the near future
+                    We will be adding more login providers in the near future, such as facebook, twitter etc
                 </div>
             </div>
             <br><br>

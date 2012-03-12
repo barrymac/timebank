@@ -1,7 +1,6 @@
 import org.codehaus.groovy.grails.plugins.springsecurity.openid.OpenIdAuthenticationFailureHandler as OIAFH
 
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
-import org.hibernate.usertype.UserType
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.savedrequest.DefaultSavedRequest
@@ -155,7 +154,8 @@ class OpenIdController {
             password = springSecurityService.encodePassword(password)
             def user = new User(
                     username: username,
-                    enabled: true
+                    enabled: true,
+                    password: ''
             )
 
             user.addToOpenIds(url: openId)
