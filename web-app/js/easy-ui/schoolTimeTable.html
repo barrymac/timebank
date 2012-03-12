@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="layout" content="main"/>
+    <!--<meta name="keywords" content="jquery,ui,easy,easyui,web">-->
+    <!--<meta name="description" content="easyui help you build your web page easily!">-->
+    <link rel="stylesheet" type="text/css" href="js/easy-ui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="js/easy-ui/themes/default/icon.css">
+    <link rel="stylesheet" type="text/css" href="js/easy-ui/themes/default/demo.css">
+    <!--<script type="text/javascript" src="schoolTimeTable_files/jquery-1.js"></script>-->
+    <!--<script type="text/javascript" src="schoolTimeTable_files/jquery.js"></script>-->
+    <script type="text/javascript" src="jquery.easyui.min.js"></script>
+    <style type="text/css">
+        .left {
+            width: 120px;
+            float: left;
+        }
+
+        .left table {
+            background: #E0ECFF;
+        }
+
+        .left td {
+            background: #eee;
+        }
+
+        .right {
+            float: right;
+            width: 570px;
+        }
+
+        .right table {
+            background: #E0ECFF;
+            width: 100%;
+        }
+
+        .right td {
+            background: #fafafa;
+            text-align: center;
+            padding: 2px;
+        }
+
+        .right td {
+            background: #E0ECFF;
+        }
+
+        .right td.drop {
+            background: #fafafa;
+            width: 100px;
+        }
+
+        .right td.over {
+            background: #FBEC88;
+        }
+
+        .normalClass {
+            text-align: center;
+            border: 1px solid #499B33;
+            background: #fafafa;
+            width: 100px;
+        }
+
+        .longClass {
+            text-align: center;
+            border: 1px solid #499B33;
+            background: #fafafa;
+            width: 100px;
+        }
+
+        .assigned {
+            border: 1px solid #BC2A4D;
+        }
+
+    </style>
+    <script>
+        function assignClass(fullPeriod, source) {
+            fullPeriod.removeClass('over');
+            if ($(source).hasClass('assigned')) {
+                fullPeriod.append(source);
+            } else {
+                var c = $(source).clone().addClass('assigned');
+                fullPeriod.empty().append(c);
+                c.draggable({
+                    revert:true
+                });
+            }
+        }
+
+        function assignLongOrShort(source, target) {
+            var fullPeriod;
+            if ($(source).hasClass('longClass')) {
+                fullPeriod = $("td[longPeriod=" + target.attr("longPeriod") + "][room=" + target.attr("room") + "]");
+            } else {
+                fullPeriod = $("td[normalPeriod=" + target.attr("normalPeriod") + "][room=" + target.attr("room") + "]")
+            }
+            return fullPeriod;
+        }
+
+        $(function () {
+            $('.left .normalClass').draggable({
+                revert:true,
+                proxy:'clone'
+            });
+            $('.left .longClass').draggable({
+                revert:true,
+                proxy:'clone'
+            });
+            $('.right td.drop').droppable({
+                onDragEnter:function (e, source) {
+                    var fullPeriod = assignLongOrShort(source, $(this));
+                    fullPeriod.addClass('over');
+                },
+                onDragLeave:function (e, source) {
+                    var fullPeriod = assignLongOrShort(source, $(this));
+                    fullPeriod.removeClass('over');
+                },
+                onDrop:function (e, source) {
+                    var fullPeriod = assignLongOrShort(source, $(this));
+                    assignClass(fullPeriod, source);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="demo-info" style="margin-bottom:10px">
+    <div class="demo-tip icon-tip">&nbsp;</div>
+    <div>Click and drag a class to timetable.</div>
+</div>
+
+<div style="width:700px;">
+    <div class="left">
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <div id="normalClass" class="normalClass">
+                        Normal course
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="longClass" class="longClass">
+                        Long Class Course
+                    </div>
+                </td>
+            </tr>
+            <!--<tr>-->
+            <!--<td><div class="item">Science</div></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><div class="item">Music</div></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><div class="item">History</div></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><div class="item">Computer</div></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><div class="item">Mathematics</div></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><div class="item">Arts</div></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td><div class="item">Ethics</div></td>-->
+            <!--</tr>-->
+            </tbody>
+        </table>
+    </div>
+    <div class="right">
+        <table>
+            <tbody>
+            <tr>
+                <td class="blank"></td>
+                <td class="title">Room1</td>
+                <td class="title">Room2</td>
+                <td class="title">Room3</td>
+                <td class="title">Room4</td>
+                <td class="title">Room5</td>
+            </tr>
+            <tr>
+                <td class="time">09:00</td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="1"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="2"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="3"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="4"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">09:30</td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="1"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="2"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="3"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="4"></td>
+                <td class="drop droppable" normalPeriod="1" longPeriod="1" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">10:00</td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="1" room="1"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="1" room="2"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="1" room="3"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="1" room="4"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="1" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">10:30</td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="2" room="1"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="2" room="2"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="2" room="3"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="2" room="4"></td>
+                <td class="drop droppable" normalPeriod="2" longPeriod="2" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">11:00</td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="1"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="2"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="3"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="4"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">11:30</td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="1"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="2"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="3"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="4"></td>
+                <td class="drop droppable" normalPeriod="3" longPeriod="2" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">12:00</td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="1"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="2"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="3"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="4"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">12:30</td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="1"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="2"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="3"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="4"></td>
+                <td class="drop droppable" normalPeriod="4" longPeriod="0" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">13:00</td>
+                <td class="lunch" colspan="5">Lunch</td>
+            </tr>
+            <tr>
+                <td class="time">14:00</td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="1"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="2"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="3"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="4"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">14:30</td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="1"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="2"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="3"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="4"></td>
+                <td class="drop droppable" normalPeriod="5" longPeriod="3" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">15:00</td>
+                <td class="drop droppable" normalPeriod="6" longPeriod="3" room="1"></td>
+                <td class="drop droppable" normalPeriod="6" longPeriod="3" room="2"></td>
+                <td class="drop droppable" normalPeriod="6" longPeriod="3" room="3"></td>
+                <td class="drop droppable" normalPeriod="6" longPeriod="3" room="4"></td>
+                <td class="drop droppable" normalPeriod="6" longPeriod="3" room="5"></td>
+            </tr>
+            <tr>
+                <td class="time">15:30</td>
+                <td class="drop droppable" normalPeriod="7" longPeriod="0" room="1"></td>
+                <td class="drop droppable" normalPeriod="7" longPeriod="0" room="2"></td>
+                <td class="drop droppable" normalPeriod="7" longPeriod="0" room="3"></td>
+                <td class="drop droppable" normalPeriod="7" longPeriod="0" room="4"></td>
+                <td class="drop droppable" normalPeriod="7" longPeriod="0" room="5"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
