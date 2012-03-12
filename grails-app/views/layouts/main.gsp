@@ -9,12 +9,8 @@
     <link rel="stylesheet" href="${resource(dir: 'css/52fw', file: 'general.css')}" type="text/css"/>
     %{--<link rel="stylesheet" href="${resource(dir:'css/52fw',file:'forms.css')}" type="text/css" />--}%
     <script src="${resource(dir: 'js/52fw', file: 'selectivizr.js')}"></script>
-    %{--<script src="${resource(dir: 'js/52fw', file: 'jquery.js')}"></script>--}%
     <script src="${resource(dir: 'js/52fw', file: 'modernizr-1.7.min.js')}"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
-          type="text/css"/>
-    %{--<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/trontastic/jquery-ui.css" rel="stylesheet"--}%
-    %{--type="text/css"/>--}%
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
     <script src="${resource(dir: 'js/jdMenu', file: 'jquery.positionBy.js')}"></script>

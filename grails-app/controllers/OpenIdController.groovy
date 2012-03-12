@@ -155,8 +155,7 @@ class OpenIdController {
             password = springSecurityService.encodePassword(password)
             def user = new User(
                     username: username,
-                    enabled: true,
-                    type: UserType.findByName('normal'),
+                    enabled: true
             )
 
             user.addToOpenIds(url: openId)
@@ -225,23 +224,23 @@ class OpenIdRegisterCommand {
                 }
             }
         }
-        password blank: false, minSize: 8, maxSize: 64, validator: { password, command ->
-            if (command.username && command.username.equals(password)) {
-                return 'openIdRegisterCommand.password.error.username'
-            }
-
-            if (password && password.length() >= 8 && password.length() <= 64 &&
-                    (!password.matches('^.*\\p{Alpha}.*$') ||
-                            !password.matches('^.*\\p{Digit}.*$') ||
-                            !password.matches('^.*[!@#$%^&].*$'))) {
-                return 'openIdRegisterCommand.password.error.strength'
-            }
-        }
-        password2 validator: { password2, command ->
-            if (command.password != password2) {
-                return 'openIdRegisterCommand.password2.error.mismatch'
-            }
-        }
+//        password blank: false, minSize: 8, maxSize: 64, validator: { password, command ->
+//            if (command.username && command.username.equals(password)) {
+//                return 'openIdRegisterCommand.password.error.username'
+//            }
+//
+//            if (password && password.length() >= 8 && password.length() <= 64 &&
+//                    (!password.matches('^.*\\p{Alpha}.*$') ||
+//                            !password.matches('^.*\\p{Digit}.*$') ||
+//                            !password.matches('^.*[!@#$%^&].*$'))) {
+//                return 'openIdRegisterCommand.password.error.strength'
+//            }
+//        }
+//        password2 validator: { password2, command ->
+//            if (command.password != password2) {
+//                return 'openIdRegisterCommand.password2.error.mismatch'
+//            }
+//        }
     }
 }
 
@@ -252,6 +251,6 @@ class OpenIdLinkAccountCommand {
 
     static constraints = {
         username blank: false
-        password blank: false
+        password blank: true
     }
 }
