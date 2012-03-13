@@ -84,6 +84,7 @@
           <root url="jar://$USER_HOME$/.ivy2/cache/org.jadira.usertype/usertype.jodatime/jars/usertype.jodatime-1.9.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/joda-time/joda-time-hibernate/jars/joda-time-hibernate-1.2.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/junit/junit/jars/junit-3.8.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.16.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

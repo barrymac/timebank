@@ -1,9 +1,21 @@
 package timebank
 
+import org.joda.time.LocalDate
+import org.joda.time.contrib.hibernate.PersistentLocalDate
+
 class User {
 
-    static hasMany = [openIds: OpenID, jobsDone: Job, createRequests: Request]
-    transient springSecurityService
+    static hasMany = [openIds: OpenID, createRequests: Request, exchangesProvided: Exchange, exchangesReceived: Exchange,
+            offeredSkills: Offer, requestsCreate: Request, requestsFulfilled: Request]
+    static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
+
+    String firstName
+    String secondName
+    LocalDate dob
+    SortedSet<Exchange> exchangesProvided
+    SortedSet<Exchange> exchangesReceived
+    SortedSet<Request> requestsFulfilled
+    SortedSet<Skill> offeredSkills
 
     String username
     String password
@@ -13,11 +25,16 @@ class User {
     boolean passwordExpired
 
     static constraints = {
+        firstName blank: true, nullable: true
+        secondName blank: true, nullable: true
+        dob blank: true, nullable: true
+
         username blank: false, unique: true
         password blank: true
     }
 
     static mapping = {
+        dob type: PersistentLocalDate
         password column: '`password`'
     }
 
@@ -34,6 +51,8 @@ class User {
             encodePassword()
         }
     }
+
+    transient springSecurityService
 
     protected void encodePassword() {
         password = springSecurityService.encodePassword(password)

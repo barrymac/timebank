@@ -7,9 +7,9 @@ import org.joda.time.contrib.hibernate.PersistentPeriod
 
 class Request {
 
-    static belongsTo = [Person]
+    static belongsTo = [User]
 
-    def Person requester
+    def User requester
 
     String title
     String description

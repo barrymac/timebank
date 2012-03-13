@@ -27,12 +27,6 @@
 
                 <g:sortableColumn property="id" title="${message(code: 'user.id.label', default: 'Id')}"/>
 
-                <g:sortableColumn property="username"
-                                  title="${message(code: 'user.username.label', default: 'Username')}"/>
-
-                <g:sortableColumn property="password"
-                                  title="${message(code: 'user.password.label', default: 'Password')}"/>
-
                 <g:sortableColumn property="firstName"
                                   title="${message(code: 'user.firstName.label', default: 'First Name')}"/>
 
@@ -40,6 +34,12 @@
                                   title="${message(code: 'user.secondName.label', default: 'Second Name')}"/>
 
                 <g:sortableColumn property="dob" title="${message(code: 'user.dob.label', default: 'Dob')}"/>
+
+                <g:sortableColumn property="username"
+                                  title="${message(code: 'user.username.label', default: 'Username')}"/>
+
+                <g:sortableColumn property="password"
+                                  title="${message(code: 'user.password.label', default: 'Password')}"/>
 
             </tr>
             </thead>
@@ -50,15 +50,15 @@
                     <td><g:link action="show"
                                 id="${userInstance.id}">${fieldValue(bean: userInstance, field: "id")}</g:link></td>
 
-                    <td>${fieldValue(bean: userInstance, field: "username")}</td>
-
-                    <td>${fieldValue(bean: userInstance, field: "password")}</td>
-
                     <td>${fieldValue(bean: userInstance, field: "firstName")}</td>
 
                     <td>${fieldValue(bean: userInstance, field: "secondName")}</td>
 
                     <td>${fieldValue(bean: userInstance, field: "dob")}</td>
+
+                    <td>${fieldValue(bean: userInstance, field: "username")}</td>
+
+                    <td>${fieldValue(bean: userInstance, field: "password")}</td>
 
                 </tr>
             </g:each>

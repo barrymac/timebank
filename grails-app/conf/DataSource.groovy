@@ -13,8 +13,9 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:hsqldb:mem:devDB"
+            dbCreate = "create" // one of 'create', 'create-drop','update'
+//            url = "jdbc:hsqldb:mem:devDB"
+            url = "jdbc:hsqldb:file:devDB"
         }
     }
     test {
@@ -31,8 +32,8 @@ environments {
             username = "root"
             password = "mysql"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-            dbCreate = "create-drop"
-//            dbCreate = "update"
+//            dbCreate = "create-drop"
+            dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/timebank?autoReconnect=true"
 
             properties {

@@ -4,8 +4,8 @@ import org.joda.time.Period
 
 class Exchange {
 
-    Person provider
-    Person receiver
+    User provider
+    User receiver
     Period timeTaken
     Activity activity
 

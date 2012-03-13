@@ -34,20 +34,6 @@
             </tr>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.username.label" default="Username"/></td>
-
-                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "username")}</td>
-
-            </tr>
-
-            <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.password.label" default="Password"/></td>
-
-                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "password")}</td>
-
-            </tr>
-
-            <tr class="prop">
                 <td valign="top" class="name"><g:message code="user.firstName.label" default="First Name"/></td>
 
                 <td valign="top" class="value">${fieldValue(bean: userInstance, field: "firstName")}</td>
@@ -65,6 +51,20 @@
                 <td valign="top" class="name"><g:message code="user.dob.label" default="Dob"/></td>
 
                 <td valign="top" class="value">${fieldValue(bean: userInstance, field: "dob")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.username.label" default="Username"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "username")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.password.label" default="Password"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "password")}</td>
 
             </tr>
 
@@ -106,12 +106,42 @@
             </tr>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.jobsDone.label" default="Jobs Done"/></td>
+                <td valign="top" class="name"><g:message code="user.exchangesProvided.label"
+                                                         default="Exchanges Provided"/></td>
 
                 <td valign="top" style="text-align: left;" class="value">
                     <ul>
-                        <g:each in="${userInstance.jobsDone}" var="j">
-                            <li><g:link controller="job" action="show" id="${j.id}">${j?.encodeAsHTML()}</g:link></li>
+                        <g:each in="${userInstance.exchangesProvided}" var="e">
+                            <li><g:link controller="exchange" action="show"
+                                        id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                        </g:each>
+                    </ul>
+                </td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.exchangesReceived.label"
+                                                         default="Exchanges Received"/></td>
+
+                <td valign="top" style="text-align: left;" class="value">
+                    <ul>
+                        <g:each in="${userInstance.exchangesReceived}" var="e">
+                            <li><g:link controller="exchange" action="show"
+                                        id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                        </g:each>
+                    </ul>
+                </td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.offeredSkills.label" default="Offered Skills"/></td>
+
+                <td valign="top" style="text-align: left;" class="value">
+                    <ul>
+                        <g:each in="${userInstance.offeredSkills}" var="o">
+                            <li><g:link controller="offer" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
                         </g:each>
                     </ul>
                 </td>
@@ -137,6 +167,19 @@
                                                          default="Password Expired"/></td>
 
                 <td valign="top" class="value"><g:formatBoolean boolean="${userInstance?.passwordExpired}"/></td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.skills.label" default="Skills"/></td>
+
+                <td valign="top" style="text-align: left;" class="value">
+                    <ul>
+                        <g:each in="${userInstance.skills}" var="s">
+                            <li><g:link controller="skill" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                        </g:each>
+                    </ul>
+                </td>
 
             </tr>
 

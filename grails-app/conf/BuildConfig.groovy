@@ -16,8 +16,8 @@ grails.project.dependency.resolution = {
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
-        //mavenLocal()
-        //mavenCentral()
+        mavenLocal()
+        mavenCentral()
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -25,7 +25,7 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         compile "org.jadira.usertype:usertype.jodatime:1.9"
-
+        compile "mysql:mysql-connector-java:5.1.16"
         compile("joda-time:joda-time-hibernate:1.2") {
             excludes "joda-time", "hibernate"
         }
