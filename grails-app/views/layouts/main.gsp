@@ -23,7 +23,7 @@
 
 <body>
 <div id="mainBodyDiv" class="row header align_center">
-    <div id="titleDiv" class="col col_16">
+    <div id="titleDiv" class="col col_16 align_left">
         <div class="top">
             <a href="${request.contextPath}">
                 <img src="${resource(dir: 'images', file: 'logo-beta.png')}" alt="TimeBank" border="0" class="top"/>
@@ -35,8 +35,6 @@
                  alt="${message(code: 'spinner.alt', default: 'Working...')}"/>
         </div>
         <br>
-
-        <h2 class="align_center">Timber Wharf TimeBank</h2>
 
         <div id="selectedSessionDiv" class="row col_11 rounded message" style="display:none;">
         </div>
