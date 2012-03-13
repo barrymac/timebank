@@ -14,6 +14,7 @@
     <br>
 </div>
 
+
 <div class="body">
     <h3>Edit Your Profile</h3>
     <g:if test="${flash.message}">
