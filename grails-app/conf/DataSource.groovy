@@ -26,6 +26,7 @@ environments {
     production {
         dataSource {
             pooled = true
+
             driverClassName = "com.mysql.jdbc.Driver"
             username = "root"
             password = "mysql"
