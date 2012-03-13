@@ -26,32 +26,30 @@ environments {
     production {
         dataSource {
             pooled = true
-            url = "jdbc:hsqldb:mem:devDB"
+            driverClassName = "com.mysql.jdbc.Driver"
+            username = "root"
+            password = "mysql"
+            dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+            dbCreate = "create-drop"
+//            dbCreate = "update"
+            url = "jdbc:mysql://localhost:3306/timebank?autoReconnect=true"
 
-//            driverClassName = "com.mysql.jdbc.Driver"
-//            username = "root"
-//            password = "mysql"
-//            dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-//            dbCreate = "create-drop"
-////            dbCreate = "update"
-//            url = "jdbc:mysql://localhost:3306/timebank?autoReconnect=true"
-//
-//            properties {
-//                maxActive = 50
-//                maxIdle = 25
-//                minIdle = 1
-//                initialSize = 1
-//                minEvictableIdleTimeMillis = 60000
-//                timeBetweenEvictionRunsMillis = 60000
-//                numTestsPerEvictionRun = 3
-//                maxWait = 10000
-//
-//                testOnBorrow = true
-//                testWhileIdle = true
-//                testOnReturn = true
-//
-//                validationQuery = "select now()"
-//            }
+            properties {
+                maxActive = 50
+                maxIdle = 25
+                minIdle = 1
+                initialSize = 1
+                minEvictableIdleTimeMillis = 60000
+                timeBetweenEvictionRunsMillis = 60000
+                numTestsPerEvictionRun = 3
+                maxWait = 10000
+
+                testOnBorrow = true
+                testWhileIdle = true
+                testOnReturn = true
+
+                validationQuery = "select now()"
+            }
         }
     }
 }
