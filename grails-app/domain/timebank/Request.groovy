@@ -7,8 +7,10 @@ import org.joda.time.contrib.hibernate.PersistentPeriod
 
 class Request {
 
-    def User creator
-    static belongsTo = [User]
+    static belongsTo = [Person]
+
+    def Person requester
+
     String title
     String description
     Period timeEstimate

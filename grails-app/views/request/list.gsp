@@ -39,8 +39,7 @@
                 <g:sortableColumn property="lastUpdated"
                                   title="${message(code: 'request.lastUpdated.label', default: 'Last Updated')}"/>
 
-                <g:sortableColumn property="timeEstimate"
-                                  title="${message(code: 'request.timeEstimate.label', default: 'Time Estimate')}"/>
+                <th><g:message code="request.requester.label" default="Requester"/></th>
 
             </tr>
             </thead>
@@ -59,7 +58,7 @@
 
                     <td>${fieldValue(bean: requestInstance, field: "lastUpdated")}</td>
 
-                    <td>${fieldValue(bean: requestInstance, field: "timeEstimate")}</td>
+                    <td>${fieldValue(bean: requestInstance, field: "requester")}</td>
 
                 </tr>
             </g:each>

@@ -51,6 +51,16 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="requester"><g:message code="request.requester.label" default="Requester"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: requestInstance, field: 'requester', 'errors')}">
+                        <g:select id="requester" name="requester.id" from="${timebank.Person.list()}" optionKey="id"
+                                  required="" value="${requestInstance?.requester?.id}" class="many-to-one"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="timeEstimate"><g:message code="request.timeEstimate.label"
                                                              default="Time Estimate"/></label>
                     </td>

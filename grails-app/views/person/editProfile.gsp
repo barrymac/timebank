@@ -4,18 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
     <g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}"/>
-    <title><g:message code="default.edit.label" args="[entityName]"/></title>
+    %{--<title><g:message code="default.edit.label" args="[entityName]"/></title>--}%
 </head>
 
 <body>
 <div class="nav">
     <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
     </span>
-    <br>
 </div>
 
+<div class="body align_center">
+    <br>
 
-<div class="body">
     <h3>Edit Your Profile</h3>
     <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
@@ -81,6 +81,28 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="offeredSkills"><g:message code="person.offeredSkills.label"
+                                                              default="Offer Skills"/></label>
+                    </td>
+                    <td valign="top"
+                        class="value ${hasErrors(bean: personInstance, field: 'offeredSkills', 'errors')}">
+
+                        <ul class="one-to-many">
+                            <g:each in="${personInstance?.offeredSkills ?}" var="c">
+                                <li><g:link controller="request" action="show"
+                                            id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+                            </g:each>
+                            <li class="add">
+                                <g:link controller="offer" action="create"
+                                        params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'request.label', default: 'Offer')])}</g:link>
+                            </li>
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="createRequests"><g:message code="person.createRequests.label"
                                                                default="Create Requests"/></label>
                     </td>
@@ -103,21 +125,14 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="jobsDone"><g:message code="person.jobsDone.label" default="Jobs Done"/></label>
+                        <label for="offeredSkills"><g:message code="person.offeredSkills.label"
+                                                              default="Offered Skills"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'jobsDone', 'errors')}">
-
-                        <ul class="one-to-many">
-                            <g:each in="${personInstance?.jobsDone ?}" var="j">
-                                <li><g:link controller="job" action="show"
-                                            id="${j.id}">${j?.encodeAsHTML()}</g:link></li>
-                            </g:each>
-                            <li class="add">
-                                <g:link controller="job" action="create"
-                                        params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'job.label', default: 'Job')])}</g:link>
-                            </li>
-                        </ul>
-
+                    <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'offeredSkills', 'errors')}">
+                        <g:select name="offeredSkills" from="${timebank.Offer.list()}" multiple="multiple"
+                                  optionKey="id" size="5"
+                                  value="${personInstance?.offeredSkills*.id}" class="many-to-many"/>
+                        <g:link controller="skill" action="create">Create New Skill</g:link>
                     </td>
                 </tr>
 
@@ -128,9 +143,6 @@
         <div class="buttons">
             <span class="button"><g:actionSubmit class="save" action="update"
                                                  value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>
-            <span class="button"><g:actionSubmit class="delete" action="delete"
-                                                 value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-                                                 onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/></span>
         </div>
     </g:form>
 </div>

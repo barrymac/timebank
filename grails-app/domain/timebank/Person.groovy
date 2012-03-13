@@ -5,6 +5,8 @@ import org.joda.time.contrib.hibernate.PersistentLocalDate
 
 class Person extends User {
 
+    static hasMany = [jobs: Job, requests: Request, exchangesProvided: Exchange, exchangesReceived: Exchange, skills: Skill, offeredSkills: Offer]
+
     String firstName
     String secondName
     DateTime dob
@@ -19,5 +21,4 @@ class Person extends User {
         dob type: PersistentLocalDate
     }
 
-    static hasMany = [jobs: Job]
 }

@@ -62,6 +62,14 @@
             </tr>
 
             <tr class="prop">
+                <td valign="top" class="name"><g:message code="request.requester.label" default="Requester"/></td>
+
+                <td valign="top" class="value"><g:link controller="person" action="show"
+                                                       id="${requestInstance?.requester?.id}">${requestInstance?.requester?.encodeAsHTML()}</g:link></td>
+
+            </tr>
+
+            <tr class="prop">
                 <td valign="top" class="name"><g:message code="request.timeEstimate.label"
                                                          default="Time Estimate"/></td>
 
