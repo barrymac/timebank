@@ -60,7 +60,7 @@
         <sec:ifLoggedIn>
             <li></li>
             <li>Welcome <sec:username/> !</li>
-            <li><g:link controller="user" action="editProfile" params="">My Profile</g:link></li>
+            <li><g:link controller="person" action="editProfile" params="">My Profile</g:link></li>
             <li><g:link controller="job" action="list" params="">My Jobs</g:link></li>
             <li>
                 <g:link controller="request" action="create">Create a Request</g:link>

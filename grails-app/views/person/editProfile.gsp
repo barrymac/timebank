@@ -11,14 +11,11 @@
 <div class="nav">
     <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
     </span>
-    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label"
-                                                                           args="[entityName]"/></g:link></span>
-    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label"
-                                                                               args="[entityName]"/></g:link></span>
+    <br>
 </div>
 
 <div class="body">
-    <h1><g:message code="default.edit.label" args="[entityName]"/></h1>
+    <h3>Edit Your Profile</h3>
     <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
     </g:if>
@@ -83,27 +80,6 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="accountExpired"><g:message code="person.accountExpired.label"
-                                                               default="Account Expired"/></label>
-                    </td>
-                    <td valign="top"
-                        class="value ${hasErrors(bean: personInstance, field: 'accountExpired', 'errors')}">
-                        <g:checkBox name="accountExpired" value="${personInstance?.accountExpired}"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="accountLocked"><g:message code="person.accountLocked.label"
-                                                              default="Account Locked"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'accountLocked', 'errors')}">
-                        <g:checkBox name="accountLocked" value="${personInstance?.accountLocked}"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
                         <label for="createRequests"><g:message code="person.createRequests.label"
                                                                default="Create Requests"/></label>
                     </td>
@@ -118,35 +94,6 @@
                             <li class="add">
                                 <g:link controller="request" action="create"
                                         params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'request.label', default: 'Request')])}</g:link>
-                            </li>
-                        </ul>
-
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="enabled"><g:message code="person.enabled.label" default="Enabled"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'enabled', 'errors')}">
-                        <g:checkBox name="enabled" value="${personInstance?.enabled}"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="jobs"><g:message code="person.jobs.label" default="Jobs"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'jobs', 'errors')}">
-
-                        <ul class="one-to-many">
-                            <g:each in="${personInstance?.jobs ?}" var="j">
-                                <li><g:link controller="job" action="show"
-                                            id="${j.id}">${j?.encodeAsHTML()}</g:link></li>
-                            </g:each>
-                            <li class="add">
-                                <g:link controller="job" action="create"
-                                        params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'job.label', default: 'Job')])}</g:link>
                             </li>
                         </ul>
 
@@ -170,37 +117,6 @@
                             </li>
                         </ul>
 
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="openIds"><g:message code="person.openIds.label" default="Open Ids"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: personInstance, field: 'openIds', 'errors')}">
-
-                        <ul class="one-to-many">
-                            <g:each in="${personInstance?.openIds ?}" var="o">
-                                <li><g:link controller="openID" action="show"
-                                            id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
-                            </g:each>
-                            <li class="add">
-                                <g:link controller="openID" action="create"
-                                        params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'openID.label', default: 'OpenID')])}</g:link>
-                            </li>
-                        </ul>
-
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="passwordExpired"><g:message code="person.passwordExpired.label"
-                                                                default="Password Expired"/></label>
-                    </td>
-                    <td valign="top"
-                        class="value ${hasErrors(bean: personInstance, field: 'passwordExpired', 'errors')}">
-                        <g:checkBox name="passwordExpired" value="${personInstance?.passwordExpired}"/>
                     </td>
                 </tr>
 
