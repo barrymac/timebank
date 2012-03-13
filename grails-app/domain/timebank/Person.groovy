@@ -10,6 +10,8 @@ class Person extends User {
     String firstName
     String secondName
     DateTime dob
+    SortedSet exchangesProvided
+    SortedSet exchangesReceived
 
     static constraints = {
         firstName blank: true, nullable: true
