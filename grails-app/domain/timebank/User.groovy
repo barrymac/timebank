@@ -5,8 +5,8 @@ import org.joda.time.contrib.hibernate.PersistentLocalDate
 
 class User {
 
-    static hasMany = [openIds: OpenID, createRequests: Request, exchangesProvided: Exchange, exchangesReceived: Exchange,
-            offeredSkills: Offer, requestsCreate: Request, requestsFulfilled: Request]
+    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange,
+            offeredSkills: Offer, createdRequests: Request]
     static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
 
     String firstName
@@ -14,7 +14,7 @@ class User {
     LocalDate dob
     SortedSet<Exchange> exchangesProvided
     SortedSet<Exchange> exchangesReceived
-    SortedSet<Request> requestsFulfilled
+    SortedSet<Request> createdRequests
     SortedSet<Skill> offeredSkills
 
     String username

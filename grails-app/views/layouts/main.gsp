@@ -65,6 +65,7 @@
             <li><g:link controller="request" action="create">Make a Request</g:link></li>
             <li><g:link controller="offer" action="list" params="">My Offers</g:link></li>
             <li><g:link controller="request" action="list">Browse Requests</g:link></li>
+            <li><g:link controller="logout">Log out</g:link></li>
             <sec:ifAllGranted roles="ROLE_ADMIN,ROLE_SUPERVISOR">
                 <li><g:link controller="tag" action="create">Create a tag</g:link></li>
                 <li><g:link controller="skill" action="create">Create a skill</g:link></li>

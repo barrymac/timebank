@@ -3,7 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
     <title><g:message code="default.edit.profile"/></title>
 </head>
 
@@ -11,10 +10,6 @@
 <div class="nav">
     <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
     </span>
-    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label"
-                                                                           args="[entityName]"/></g:link></span>
-    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label"
-                                                                               args="[entityName]"/></g:link></span>
 </div>
 
 <div class="body">
@@ -27,7 +22,7 @@
             <g:renderErrors bean="${userInstance}" as="list"/>
         </div>
     </g:hasErrors>
-    <g:form method="post" action="updateProfile">
+    <g:form method="post" controller="userProfile" action="updateProfile">
         <g:hiddenField name="id" value="${userInstance?.id}"/>
         <g:hiddenField name="version" value="${userInstance?.version}"/>
         <div class="dialog">
@@ -73,12 +68,12 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="createRequests"><g:message code="user.createRequests.label"
-                                                               default="Create Requests"/></label>
+                        <label for="createdRequests"><g:message code="user.createdRequests.label"
+                                                                default="Create Requests"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createRequests', 'errors')}">
-                        <g:select name="createRequests" from="${timebank.Request.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.createRequests*.id}"
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createdRequests', 'errors')}">
+                        <g:select name="createdRequests" from="${timebank.Request.list()}" multiple="multiple"
+                                  optionKey="id" size="5" value="${userInstance?.createdRequests*.id}"
                                   class="many-to-many"/>
                     </td>
                 </tr>
@@ -126,7 +121,7 @@
         </div>
 
         <div class="buttons">
-            <span class="button"><g:actionSubmit class="save" action="update"
+            <span class="button"><g:actionSubmit class="save" action="updateProfile"
                                                  value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>
         </div>
     </g:form>
