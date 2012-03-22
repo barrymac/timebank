@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69a29204-034e-42f4-b7bc-45952fdc61d9" name="Default" comment="fixed requests page">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/skill/addSkill.gsp" />
+    <list default="true" id="69a29204-034e-42f4-b7bc-45952fdc61d9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" afterPath="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" />
     </list>
     <ignored path="timebank.iws" />
@@ -125,10 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editProfile.gsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="editProfile.gsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="48" selection-start="3591" selection-end="3591" vertical-scroll-proportion="-5.744681">
+            <state line="78" column="66" selection-start="3420" selection-end="3420" vertical-scroll-proportion="0.47368422">
               <folding />
             </state>
           </provider>
@@ -143,11 +141,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserProfileController.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserProfileController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="56" selection-start="2152" selection-end="2152" vertical-scroll-proportion="0.45679012">
-              <folding />
+            <state line="52" column="27" selection-start="2064" selection-end="2064" vertical-scroll-proportion="-7.0434785">
+              <folding>
+                <element signature="e#18#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,7 +155,19 @@
       <file leaf-file-name="User.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="21" selection-start="571" selection-end="571" vertical-scroll-proportion="-3.7954545">
+            <state line="14" column="0" selection-start="427" selection-end="427" vertical-scroll-proportion="-2.590909">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Skill.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/Skill.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="6" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.6818182">
               <folding />
             </state>
           </provider>
@@ -177,15 +189,6 @@
         <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="30" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exchange.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/Exchange.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -224,12 +227,12 @@
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/Person.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/Request.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/Exchange.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/request/create.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" />
       </list>
     </option>
   </component>
@@ -565,6 +568,7 @@
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12592593" sideWeight="0.65553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -576,7 +580,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -614,7 +617,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed requests page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added autocomplete skills and adding to profile" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -644,6 +647,7 @@
     <MESSAGE value="profile update nearly working" />
     <MESSAGE value="profile updates working" />
     <MESSAGE value="fixed requests page" />
+    <MESSAGE value="added autocomplete skills and adding to profile" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -683,11 +687,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="66" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/user/edit.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="215" column="0" selection-start="11656" selection-end="11656" vertical-scroll-proportion="-18.680851" />
@@ -757,10 +756,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="48" selection-start="3591" selection-end="3591" vertical-scroll-proportion="-5.744681">
+        <state line="15" column="30" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/Skill.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.6818182">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="427" selection-end="427" vertical-scroll-proportion="-2.590909">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="27" selection-start="2064" selection-end="2064" vertical-scroll-proportion="-7.0434785">
+          <folding>
+            <element signature="e#18#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -771,26 +799,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="30" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="571" selection-end="571" vertical-scroll-proportion="-3.7954545">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="56" selection-start="2152" selection-end="2152" vertical-scroll-proportion="0.45679012">
+        <state line="78" column="66" selection-start="3420" selection-end="3420" vertical-scroll-proportion="0.47368422">
           <folding />
         </state>
       </provider>

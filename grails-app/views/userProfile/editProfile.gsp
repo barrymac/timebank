@@ -75,8 +75,8 @@
                                                               default="Offered Skills"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'offeredSkills', 'errors')}">
-                        <g:select name="offeredSkills" from="${timebank.Offer.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.offeredSkills*.id}"
+                        <g:select name="offeredSkills" from="${timebank.Skill.list()}" multiple="multiple"
+                                  optionKey="id" optionValue="name" size="5" value="${userInstance?.offeredSkills*.id}"
                                   class="many-to-many"/>
                         <br>
                         <g:form action="addSkill"><g:textField name="txtSkill"/><g:actionSubmit value="Add Skill"
