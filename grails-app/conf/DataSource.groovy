@@ -13,9 +13,9 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:hsqldb:mem:devDB"
-//            url = "jdbc:hsqldb:file:devDB"
+            dbCreate = "update" // one of 'create', 'create-drop','update'
+//            url = "jdbc:hsqldb:mem:devDB"
+            url = "jdbc:hsqldb:file:devDB"
         }
     }
     test {

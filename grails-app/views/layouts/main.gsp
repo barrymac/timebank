@@ -18,6 +18,9 @@
     <script src="${resource(dir: 'js/jdMenu', file: 'jquery.bgiframe.js')}"></script>
     <script src="${resource(dir: 'js/jdMenu', file: 'jquery.jdMenu.js')}"></script>
     <link rel="stylesheet" href="${resource(dir: 'css/', file: 'jquery.jdMenu.css')}" type="text/css"/>
+    %{--<g:javascript library="jquery" plugin="jquery"/>--}%
+    %{--<jqui:resources/>--}%
+    %{--<jqueryui:javascript />--}%
     <g:layoutHead/>
 </head>
 
@@ -61,7 +64,7 @@
             <li></li>
             <li>Welcome <sec:username/> !</li>
             <li><g:link controller="userProfile" action="editProfile" params="">My Profile</g:link></li>
-            <li><g:link controller="offer" action="create" params="">Make Offer</g:link></li>
+            <li><g:link controller="offer" action="create" params="">Offer a Skill</g:link></li>
             <li><g:link controller="request" action="create">Make a Request</g:link></li>
             <li><g:link controller="offer" action="list" params="">My Offers</g:link></li>
             <li><g:link controller="request" action="list">Browse Requests</g:link></li>

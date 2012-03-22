@@ -1,5 +1,6 @@
 package timebank
 
+import grails.converters.JSON
 import grails.plugins.springsecurity.Secured
 import grails.plugins.springsecurity.ui.UserController
 
@@ -46,5 +47,32 @@ class UserProfileController extends UserController {
         }
     }
 
+    def addSkill = {
+        def userInstance = User.get(params.id)
+        userInstance.offeredSkills.add(Skill.findByName(params.txtSkill))
+        println(userInstance.offeredSkills)
+        userInstance.save(flush: true, failOnError: true)
+        if (userInstance) {
+            render(view: "editProfile", model: [userInstance: userInstance])
+        }
+    }
+
+    def suggestSkill = {
+        def userInstance = User.get(params.id)
+
+
+    }
+
+    def ajaxSkillSearch = {
+        String query = params.remove('term');
+        List skills = Skill.findAllByNameIlike(query + '%').collect() {
+            return [
+                    id: it.id,
+                    label: it.name,
+                    value: it.name
+            ]
+        }
+        render skills as JSON
+    }
 
 }

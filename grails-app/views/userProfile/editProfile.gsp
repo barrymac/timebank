@@ -4,6 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
     <title><g:message code="default.edit.profile"/></title>
+    <script>
+        $(document).ready(function () {
+            $("#txtSkill").focus().autocomplete({
+                minLength:2,
+                cache:false,
+                source:"${createLink( action: 'ajaxSkillSearch')}"
+            });
+        });
+
+        <s2ui:initCheckboxes/>
+
+    </script>
 </head>
 
 <body>
@@ -59,6 +71,26 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="offeredSkills"><g:message code="user.offeredSkills.label"
+                                                              default="Offered Skills"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'offeredSkills', 'errors')}">
+                        <g:select name="offeredSkills" from="${timebank.Offer.list()}" multiple="multiple"
+                                  optionKey="id" size="5" value="${userInstance?.offeredSkills*.id}"
+                                  class="many-to-many"/>
+                        <br>
+                        <g:form action="addSkill"><g:textField name="txtSkill"/><g:actionSubmit value="Add Skill"
+                                                                                                action="addSkill"
+                                                                                                id="btnAddSkill"/></g:form>
+                        <br>
+                        <g:actionSubmit value="Suggest Skill" action="suggestSkill" id="btnSuggestSkill"/>
+                        <g:textField name="txtSuggestSkill" id="txtSuggestSkill"/>
+                    </td>
+                </tr>
+
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="username"><g:message code="user.username.label" default="Username"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'username', 'errors')}">
@@ -69,7 +101,7 @@
                 <tr class="prop">
                     <td valign="top" class="name">
                         <label for="createdRequests"><g:message code="user.createdRequests.label"
-                                                                default="Create Requests"/></label>
+                                                                default="Your Requests"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createdRequests', 'errors')}">
                         <g:select name="createdRequests" from="${timebank.Request.list()}" multiple="multiple"
@@ -100,18 +132,6 @@
                         class="value ${hasErrors(bean: userInstance, field: 'exchangesReceived', 'errors')}">
                         <g:select name="exchangesReceived" from="${timebank.Exchange.list()}" multiple="multiple"
                                   optionKey="id" size="5" value="${userInstance?.exchangesReceived*.id}"
-                                  class="many-to-many"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="offeredSkills"><g:message code="user.offeredSkills.label"
-                                                              default="Offered Skills"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'offeredSkills', 'errors')}">
-                        <g:select name="offeredSkills" from="${timebank.Offer.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.offeredSkills*.id}"
                                   class="many-to-many"/>
                     </td>
                 </tr>
