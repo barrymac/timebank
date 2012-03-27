@@ -27,6 +27,16 @@
 
                 <g:sortableColumn property="id" title="${message(code: 'exchange.id.label', default: 'Id')}"/>
 
+                <g:sortableColumn property="endTime"
+                                  title="${message(code: 'exchange.endTime.label', default: 'End Time')}"/>
+
+                <th><g:message code="exchange.provider.label" default="Provider"/></th>
+
+                <th><g:message code="exchange.receiver.label" default="Receiver"/></th>
+
+                <g:sortableColumn property="startTime"
+                                  title="${message(code: 'exchange.startTime.label', default: 'Start Time')}"/>
+
             </tr>
             </thead>
             <tbody>
@@ -35,6 +45,14 @@
 
                     <td><g:link action="show"
                                 id="${exchangeInstance.id}">${fieldValue(bean: exchangeInstance, field: "id")}</g:link></td>
+
+                    <td>${fieldValue(bean: exchangeInstance, field: "endTime")}</td>
+
+                    <td>${fieldValue(bean: exchangeInstance, field: "provider")}</td>
+
+                    <td>${fieldValue(bean: exchangeInstance, field: "receiver")}</td>
+
+                    <td>${fieldValue(bean: exchangeInstance, field: "startTime")}</td>
 
                 </tr>
             </g:each>

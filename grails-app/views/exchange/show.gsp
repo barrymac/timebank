@@ -33,6 +33,36 @@
 
             </tr>
 
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="exchange.endTime.label" default="End Time"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: exchangeInstance, field: "endTime")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="exchange.provider.label" default="Provider"/></td>
+
+                <td valign="top" class="value"><g:link controller="user" action="show"
+                                                       id="${exchangeInstance?.provider?.id}">${exchangeInstance?.provider?.encodeAsHTML()}</g:link></td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="exchange.receiver.label" default="Receiver"/></td>
+
+                <td valign="top" class="value"><g:link controller="user" action="show"
+                                                       id="${exchangeInstance?.receiver?.id}">${exchangeInstance?.receiver?.encodeAsHTML()}</g:link></td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="exchange.startTime.label" default="Start Time"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: exchangeInstance, field: "startTime")}</td>
+
+            </tr>
+
             </tbody>
         </table>
     </div>

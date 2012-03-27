@@ -30,6 +30,45 @@
             <table>
                 <tbody>
 
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="endTime"><g:message code="exchange.endTime.label" default="End Time"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: exchangeInstance, field: 'endTime', 'errors')}">
+                        <joda:dateTimePicker name="endTime" value="${exchangeInstance?.endTime}"></joda:dateTimePicker>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="provider"><g:message code="exchange.provider.label" default="Provider"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: exchangeInstance, field: 'provider', 'errors')}">
+                        <g:select id="provider" name="provider.id" from="${timebank.User.list()}" optionKey="id"
+                                  required="" value="${exchangeInstance?.provider?.id}" class="many-to-one"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="receiver"><g:message code="exchange.receiver.label" default="Receiver"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: exchangeInstance, field: 'receiver', 'errors')}">
+                        <g:select id="receiver" name="receiver.id" from="${timebank.User.list()}" optionKey="id"
+                                  required="" value="${exchangeInstance?.receiver?.id}" class="many-to-one"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="startTime"><g:message code="exchange.startTime.label" default="Start Time"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: exchangeInstance, field: 'startTime', 'errors')}">
+                        <joda:dateTimePicker name="startTime"
+                                             value="${exchangeInstance?.startTime}"></joda:dateTimePicker>
+                    </td>
+                </tr>
+
                 </tbody>
             </table>
         </div>

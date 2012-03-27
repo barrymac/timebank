@@ -1,6 +1,7 @@
 package timebank
 
 import org.joda.time.LocalDate
+import org.joda.time.Period
 import org.joda.time.contrib.hibernate.PersistentLocalDate
 
 class User {
@@ -53,8 +54,38 @@ class User {
     }
 
     transient springSecurityService
+    transient balance = getBalance()
+
+    def getBalance() {
+//        todo calculate balance based on exchanges provided and received
+        Period balance = new Period(0)
+        int i = 0
+        i = 0
+
+        println("${balance.toString()} formate")
+
+        exchangesProvided.each {
+            println(it.timeTaken)
+//            balance = balance.withFields(it.timeTaken.toPeriod())
+        }
+
+        exchangesReceived.each {
+//            balance = balance.withFields(it.timeTaken.toPeriod())
+        }
+
+//        println("${balance.toStandardHours()} hours")
+
+        return "${balance.toStandardHours()} hours"
+    }
 
     protected void encodePassword() {
         password = springSecurityService.encodePassword(password)
     }
+
+    @Override
+    public String toString() {
+        return "$firstName $secondName";
+    }
+
+
 }

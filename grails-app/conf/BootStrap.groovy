@@ -18,6 +18,10 @@ class BootStrap {
         UserRole.create user, roleUser
         UserRole.create admin, roleUser
         UserRole.create admin, roleAdmin, true
+
+        def me = User.findByUsername("barry")
+//        me.exchangesProvided.add(new Exchange(startTime: new DateTime(new Date()), endTime: new DateTime(new Date()), provider: me, receiver: user ))
+
     }
 
     def destroy = {

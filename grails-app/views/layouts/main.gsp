@@ -1,3 +1,4 @@
+<%@ page import="grails.plugins.springsecurity.SpringSecurityService" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +64,7 @@
         <sec:ifLoggedIn>
             <li></li>
             <li>Welcome <sec:username/> !</li>
+            <li>Balance: ${session.balance}</li>
             <li><g:link controller="userProfile" action="editProfile" params="">My Profile</g:link></li>
             <li><g:link controller="offer" action="create" params="">Offer a Skill</g:link></li>
             <li><g:link controller="request" action="create">Make a Request</g:link></li>
