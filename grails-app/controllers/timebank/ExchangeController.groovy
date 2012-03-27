@@ -4,6 +4,8 @@ class ExchangeController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def springSecurityService
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -11,6 +13,14 @@ class ExchangeController {
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [exchangeInstanceList: Exchange.list(params), exchangeInstanceTotal: Exchange.count()]
+    }
+
+    def listMyExchanges = {
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+
+        render(view: listMyExchanges, model: Exchange.findByProvider(springSecurityService.getCurrentUser()) as User)
+
+//        [exchangeInstanceList: Exchange.findByProvider(springSecurityService.getCurrentUser()), exchangeInstanceTotal: Exchange.count()]
     }
 
     def create = {
@@ -97,4 +107,6 @@ class ExchangeController {
             redirect(action: "list")
         }
     }
+
+
 }
