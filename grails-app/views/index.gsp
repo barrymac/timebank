@@ -72,6 +72,8 @@
                     </form>
                 </div>
 
+                <facebookAuth:connect permissions="email,user_about_me"/>
+
                 %{--<div class="col col-1 rounded"><g:link controller="login" action="auth"><img--}%
                 %{--src="images/login-button-big.gif" alt="Log In"></g:link></div>--}%
 
