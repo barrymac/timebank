@@ -72,7 +72,9 @@
                 <tr class="prop">
                     <td valign="top" class="name"><g:message code="user.balance.label" default="Balance"/></td>
 
-                    <td valign="top" class="value">${fieldValue(bean: userInstance, field: "balance")}</td>
+                    <td valign="top" class="value">
+                        ${userInstance.balance} hours
+                    </td>
 
                 </tr>
 

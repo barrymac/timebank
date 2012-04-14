@@ -1,6 +1,7 @@
 package timebank
 
 import org.joda.time.Duration
+import org.joda.time.Instant
 import org.joda.time.LocalDate
 import org.joda.time.contrib.hibernate.PersistentDuration
 import org.joda.time.contrib.hibernate.PersistentLocalDate
@@ -18,7 +19,7 @@ class User {
     SortedSet<Exchange> exchangesReceived
     SortedSet<Request> createdRequests
     SortedSet<Skill> offeredSkills
-    Duration balance = new Duration(0)
+    Duration balance = new Duration(new Instant(0), new Instant(3600000))
 
     String username
     String password
@@ -58,6 +59,10 @@ class User {
 
     transient springSecurityService
 //    transient balance = getBalance()
+
+    def getBalance() {
+        balance.toStandardHours().hours
+    }
 
 //    def getBalance() {
 ////        todo calculate balance based on exchanges provided and received
