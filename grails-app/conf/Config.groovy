@@ -55,7 +55,7 @@ grails.exceptionresolver.params.exclude = ['password']
 environments {
     development {
         grails.serverURL = "http://localhost:8080/${appName}"
-        grails.plugins.springsecurity.facebook.domain.classname = 'FacebookUser'
+        grails.plugins.springsecurity.facebook.domain.classname = 'timebank.FacebookUser'
         grails.plugins.springsecurity.facebook.appId = '165680363554755'
         grails.plugins.springsecurity.facebook.secret = 'fde26c1198a01406093a58e7baad132e'
     }
@@ -64,7 +64,7 @@ environments {
     }
     production {
         grails.serverURL = "http://www.changeme.com"
-        grails.plugins.springsecurity.facebook.domain.classname = 'FacebookUser'
+        grails.plugins.springsecurity.facebook.domain.classname = 'timebank.FacebookUser'
         grails.plugins.springsecurity.facebook.appId = '343393005715895'
         grails.plugins.springsecurity.facebook.secret = 'fc392674aa78feb207b1792c4b099531'
     }
@@ -115,3 +115,4 @@ grails.gorm.default.mapping = {
     "user-type" type: org.joda.time.contrib.hibernate.PersistentLocalDateTime, class: org.joda.time.LocalDateTime
     "user-type" type: org.joda.time.contrib.hibernate.PersistentPeriod, class: org.joda.time.Period
 }
+

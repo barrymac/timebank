@@ -1,10 +1,12 @@
 class UrlMappings {
 
     static mappings = {
+
         "/login/auth" {
             controller = 'openId'
             action = 'auth'
         }
+
         "/login/openIdCreateAccount" {
             controller = 'openId'
             action = 'createAccount'
@@ -19,6 +21,6 @@ class UrlMappings {
         "/"(view: "/index")
 //        "/"(controller: "home")
         "500"(view: '/error')
-//        "404"(view: '/constuction')
+        "404"(view: '/construction')
     }
 }

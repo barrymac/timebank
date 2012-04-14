@@ -49,9 +49,15 @@ class UserProfileController extends UserController {
 
     def addSkill = {
         def userInstance = User.get(params.id)
-//        println(params)
-//        userInstance.offeredSkills.add(Skill.findByName(params.txtSkill))
-        userInstance.offeredSkills.add(new Skill(name: params.txtSkill, description: ' '))
+        println(params)
+
+        Skill newSkill = Skill.findByName(params.txtSkill)
+        if (!newSkill) {
+            newSkill = new Skill(name: params.txtSkill, description: ' ').save(flush: true)
+        }
+
+        UserSkill.link(userInstance, newSkill)
+//        userInstance.addToOfferedSkills(newSkill)
 
         if (!userInstance.hasErrors() && userInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.updated.profile.message')}"
@@ -62,11 +68,6 @@ class UserProfileController extends UserController {
         else {
             render(view: "editProfile", model: [userInstance: userInstance])
         }
-
-//        userInstance.save()
-//        if (userInstance) {
-//            render(view: "editProfile", model: [userInstance: userInstance])
-//        }
     }
 
     def suggestSkill = {

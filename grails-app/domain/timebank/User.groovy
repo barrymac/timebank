@@ -1,7 +1,6 @@
 package timebank
 
 import org.joda.time.Duration
-import org.joda.time.Instant
 import org.joda.time.LocalDate
 import org.joda.time.contrib.hibernate.PersistentDuration
 import org.joda.time.contrib.hibernate.PersistentLocalDate
@@ -9,7 +8,7 @@ import org.joda.time.contrib.hibernate.PersistentLocalDate
 class User {
 
     static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange,
-            offeredSkills: Skill, createdRequests: Request]
+            offeredSkills: UserSkill, createdRequests: Request]
     static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
 
     String firstName
@@ -18,8 +17,8 @@ class User {
     SortedSet<Exchange> exchangesProvided
     SortedSet<Exchange> exchangesReceived
     SortedSet<Request> createdRequests
-    SortedSet<Skill> offeredSkills
-    Duration balance = new Duration(new Instant(0), new Instant(3600000))
+//    SortedSet<Skill> offeredSkills
+    Duration balance = new Duration(0)
 
     String username
     String password
@@ -43,6 +42,28 @@ class User {
         password column: '`password`'
     }
 
+    def getBalance() {
+        balance.toStandardHours().hours
+    }
+
+    List offeredSkills() {
+        return UserSkill.collect {
+            int i = 1
+            i = 1
+            it.skill
+        }
+    }
+
+    List addToOfferedSkills(Skill skill) {
+        UserSkill.link(this, skill)
+        return offeredSkills()
+    }
+
+    List removeFromOfferedSkills(Skill skill) {
+        UserSkill.unlink(this, skill)
+        return offeredSkills()
+    }
+
     Set<Role> getAuthorities() {
         UserRole.findAllByUser(this).collect { it.role } as Set
     }
@@ -59,10 +80,6 @@ class User {
 
     transient springSecurityService
 //    transient balance = getBalance()
-
-    def getBalance() {
-        balance.toStandardHours().hours
-    }
 
 //    def getBalance() {
 ////        todo calculate balance based on exchanges provided and received
@@ -92,8 +109,13 @@ class User {
 
     @Override
     public String toString() {
-        return "$firstName $secondName";
+        if (firstName && secondName) {
+            return "$firstName $secondName";
+        } else if (username) {
+            return "$username";
+        } else {
+            return "who?"
+        }
     }
-
 
 }

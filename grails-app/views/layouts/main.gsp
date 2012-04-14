@@ -64,6 +64,7 @@
         <sec:ifLoggedIn>
             <li></li>
             <li>Welcome
+            %{--<sec:username/>--}%
             %{--<sec:loggedInUserInfo field="firstName"/>--}%
             </li>
         %{--<li>Balance: ${session.balance}</li>--}%

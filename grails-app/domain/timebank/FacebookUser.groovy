@@ -1,4 +1,4 @@
-import timebank.User
+package timebank
 
 class FacebookUser {
 
