@@ -64,9 +64,16 @@
                         <label for="dob"><g:message code="user.dob.label" default="Dob"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dob', 'errors')}">
-                        <joda:datePicker name="dob" value="${userInstance?.dob}"
+                        <joda:datePicker name="Date of Birth" value="${userInstance?.dob}"
                                          noSelection="['': '']"></joda:datePicker>
                     </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name"><g:message code="user.balance.label" default="Balance"/></td>
+
+                    <td valign="top" class="value">${fieldValue(bean: userInstance, field: "balance")}</td>
+
                 </tr>
 
                 <tr class="prop">
@@ -82,9 +89,9 @@
                         <g:form action="addSkill"><g:textField name="txtSkill"/><g:actionSubmit value="Add Skill"
                                                                                                 action="addSkill"
                                                                                                 id="btnAddSkill"/></g:form>
-                        <br>
-                        <g:actionSubmit value="Suggest Skill" action="suggestSkill" id="btnSuggestSkill"/>
-                        <g:textField name="txtSuggestSkill" id="txtSuggestSkill"/>
+                        %{--<br>--}%
+                        %{--<g:actionSubmit value="Suggest Skill" action="suggestSkill" id="btnSuggestSkill"/>--}%
+                        %{--<g:textField name="txtSuggestSkill" id="txtSuggestSkill"/>--}%
                     </td>
                 </tr>
 
@@ -98,43 +105,43 @@
                     </td>
                 </tr>
 
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="createdRequests"><g:message code="user.createdRequests.label"
-                                                                default="Your Requests"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createdRequests', 'errors')}">
-                        <g:select name="createdRequests" from="${timebank.Request.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.createdRequests*.id}"
-                                  class="many-to-many"/>
-                    </td>
-                </tr>
+                %{--<tr class="prop">--}%
+                %{--<td valign="top" class="name">--}%
+                %{--<label for="createdRequests"><g:message code="user.createdRequests.label"--}%
+                %{--default="Your Requests"/></label>--}%
+                %{--</td>--}%
+                %{--<td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createdRequests', 'errors')}">--}%
+                %{--<g:select name="createdRequests" from="${timebank.Request.list()}" multiple="multiple"--}%
+                %{--optionKey="id" size="5" value="${userInstance?.createdRequests*.id}"--}%
+                %{--class="many-to-many"/>--}%
+                %{--</td>--}%
+                %{--</tr>--}%
 
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="exchangesProvided"><g:message code="user.exchangesProvided.label"
-                                                                  default="Exchanges Provided"/></label>
-                    </td>
-                    <td valign="top"
-                        class="value ${hasErrors(bean: userInstance, field: 'exchangesProvided', 'errors')}">
-                        <g:select name="exchangesProvided" from="${timebank.Exchange.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.exchangesProvided*.id}"
-                                  class="many-to-many"/>
-                    </td>
-                </tr>
+                %{--<tr class="prop">--}%
+                %{--<td valign="top" class="name">--}%
+                %{--<label for="exchangesProvided"><g:message code="user.exchangesProvided.label"--}%
+                %{--default="Exchanges Provided"/></label>--}%
+                %{--</td>--}%
+                %{--<td valign="top"--}%
+                %{--class="value ${hasErrors(bean: userInstance, field: 'exchangesProvided', 'errors')}">--}%
+                %{--<g:select name="exchangesProvided" from="${timebank.Exchange.list()}" multiple="multiple"--}%
+                %{--optionKey="id" size="5" value="${userInstance?.exchangesProvided*.id}"--}%
+                %{--class="many-to-many"/>--}%
+                %{--</td>--}%
+                %{--</tr>--}%
 
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="exchangesReceived"><g:message code="user.exchangesReceived.label"
-                                                                  default="Exchanges Received"/></label>
-                    </td>
-                    <td valign="top"
-                        class="value ${hasErrors(bean: userInstance, field: 'exchangesReceived', 'errors')}">
-                        <g:select name="exchangesReceived" from="${timebank.Exchange.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.exchangesReceived*.id}"
-                                  class="many-to-many"/>
-                    </td>
-                </tr>
+                %{--<tr class="prop">--}%
+                %{--<td valign="top" class="name">--}%
+                %{--<label for="exchangesReceived"><g:message code="user.exchangesReceived.label"--}%
+                %{--default="Exchanges Received"/></label>--}%
+                %{--</td>--}%
+                %{--<td valign="top"--}%
+                %{--class="value ${hasErrors(bean: userInstance, field: 'exchangesReceived', 'errors')}">--}%
+                %{--<g:select name="exchangesReceived" from="${timebank.Exchange.list()}" multiple="multiple"--}%
+                %{--optionKey="id" size="5" value="${userInstance?.exchangesReceived*.id}"--}%
+                %{--class="many-to-many"/>--}%
+                %{--</td>--}%
+                %{--</tr>--}%
 
                 </tbody>
             </table>

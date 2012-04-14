@@ -1,7 +1,8 @@
 package timebank
 
+import org.joda.time.Duration
 import org.joda.time.LocalDate
-import org.joda.time.Period
+import org.joda.time.contrib.hibernate.PersistentDuration
 import org.joda.time.contrib.hibernate.PersistentLocalDate
 
 class User {
@@ -16,7 +17,8 @@ class User {
     SortedSet<Exchange> exchangesProvided
     SortedSet<Exchange> exchangesReceived
     SortedSet<Request> createdRequests
-//    SortedSet<Skill> offeredSkills
+    SortedSet<Skill> offeredSkills
+    Duration balance = new Duration(0)
 
     String username
     String password
@@ -29,13 +31,14 @@ class User {
         firstName blank: true, nullable: true
         secondName blank: true, nullable: true
         dob blank: true, nullable: true
-
+        offeredSkills unique: true
         username blank: false, unique: true
         password blank: true
     }
 
     static mapping = {
         dob type: PersistentLocalDate
+        balance type: PersistentDuration, nullable: true, blank: true
         password column: '`password`'
     }
 
@@ -54,29 +57,29 @@ class User {
     }
 
     transient springSecurityService
-    transient balance = getBalance()
+//    transient balance = getBalance()
 
-    def getBalance() {
-//        todo calculate balance based on exchanges provided and received
-        Period balance = new Period(0)
-        int i = 0
-        i = 0
-
-        println("${balance.toString()} formate")
-
-        exchangesProvided.each {
-            println(it.timeTaken)
-//            balance = balance.withFields(it.timeTaken.toPeriod())
-        }
-
-        exchangesReceived.each {
-//            balance = balance.withFields(it.timeTaken.toPeriod())
-        }
-
-//        println("${balance.toStandardHours()} hours")
-
-        return "${balance.toStandardHours()} hours"
-    }
+//    def getBalance() {
+////        todo calculate balance based on exchanges provided and received
+//        Period balance = new Period(0)
+//        int i = 0
+//        i = 0
+//
+//        println("${balance.toString()} formate")
+//
+//        exchangesProvided.each {
+//            println(it.timeTaken)
+////            balance = balance.withFields(it.timeTaken.toPeriod())
+//        }
+//
+//        exchangesReceived.each {
+////            balance = balance.withFields(it.timeTaken.toPeriod())
+//        }
+//
+////        println("${balance.toStandardHours()} hours")
+//
+//        return "${balance.toStandardHours()} hours"
+//    }
 
     protected void encodePassword() {
         password = springSecurityService.encodePassword(password)

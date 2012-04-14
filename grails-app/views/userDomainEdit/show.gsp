@@ -84,12 +84,19 @@
             </tr>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.createRequests.label"
-                                                         default="Create Requests"/></td>
+                <td valign="top" class="name"><g:message code="user.balance.label" default="Balance"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "balance")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.createdRequests.label"
+                                                         default="Created Requests"/></td>
 
                 <td valign="top" style="text-align: left;" class="value">
                     <ul>
-                        <g:each in="${userInstance.createRequests}" var="c">
+                        <g:each in="${userInstance.createdRequests}" var="c">
                             <li><g:link controller="request" action="show"
                                         id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
                         </g:each>
@@ -141,7 +148,7 @@
                 <td valign="top" style="text-align: left;" class="value">
                     <ul>
                         <g:each in="${userInstance.offeredSkills}" var="o">
-                            <li><g:link controller="offer" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
+                            <li><g:link controller="skill" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
                         </g:each>
                     </ul>
                 </td>
@@ -167,19 +174,6 @@
                                                          default="Password Expired"/></td>
 
                 <td valign="top" class="value"><g:formatBoolean boolean="${userInstance?.passwordExpired}"/></td>
-
-            </tr>
-
-            <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.skills.label" default="Skills"/></td>
-
-                <td valign="top" style="text-align: left;" class="value">
-                    <ul>
-                        <g:each in="${userInstance.skills}" var="s">
-                            <li><g:link controller="skill" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-                        </g:each>
-                    </ul>
-                </td>
 
             </tr>
 

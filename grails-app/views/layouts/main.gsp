@@ -63,15 +63,17 @@
         </li>
         <sec:ifLoggedIn>
             <li></li>
-            <li>Welcome <sec:username/> !</li>
-            <li>Balance: ${session.balance}</li>
+            <li>Welcome
+            %{--<sec:loggedInUserInfo field="firstName"/>--}%
+            </li>
+        %{--<li>Balance: ${session.balance}</li>--}%
             <li><g:link controller="userProfile" action="editProfile" params="">My Profile</g:link></li>
+            <li><g:link controller="logout">Log out</g:link></li>
             <sec:ifAllGranted roles="ROLE_ADMIN,ROLE_SUPERVISOR">
                 <li><g:link controller="offer" action="create" params="">Offer a Skill</g:link></li>
                 <li><g:link controller="request" action="create">Make a Request</g:link></li>
                 <li><g:link controller="offer" action="list" params="">My Offers</g:link></li>
                 <li><g:link controller="request" action="list">Browse Requests</g:link></li>
-                <li><g:link controller="logout">Log out</g:link></li>
                 <li><g:link controller="tag" action="create">Create a tag</g:link></li>
                 <li><g:link controller="skill" action="create">Create a skill</g:link></li>
                 <li><g:link controller="tag" action="list">List tags</g:link></li>
@@ -90,7 +92,7 @@
                 <g:if test="(env='development') || (env='test') || (env='devServer')">
                     <li><g:link uri="/indexScaffold.gsp">Show All controllers</g:link></li>
                 </g:if>
-                <li><g:link controller="notification" action="create">Add Notification</g:link></li>
+            %{--<li><g:link controller="notification" action="create">Add Notification</g:link></li>--}%
                 <li><g:link controller="searchable" action="indexAll">Run Search Index</g:link></li>
                 </ul>
             </sec:access>

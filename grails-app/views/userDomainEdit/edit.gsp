@@ -102,13 +102,31 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="createRequests"><g:message code="user.createRequests.label"
-                                                               default="Create Requests"/></label>
+                        <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createRequests', 'errors')}">
-                        <g:select name="createRequests" from="${timebank.Request.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.createRequests*.id}"
-                                  class="many-to-many"/>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
+                        <joda:periodPicker name="balance" value="${userInstance?.balance}"></joda:periodPicker>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="createdRequests"><g:message code="user.createdRequests.label"
+                                                                default="Created Requests"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'createdRequests', 'errors')}">
+
+                        <ul class="one-to-many">
+                            <g:each in="${userInstance?.createdRequests ?}" var="c">
+                                <li><g:link controller="request" action="show"
+                                            id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+                            </g:each>
+                            <li class="add">
+                                <g:link controller="request" action="create"
+                                        params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'request.label', default: 'Request')])}</g:link>
+                            </li>
+                        </ul>
+
                     </td>
                 </tr>
 
@@ -128,9 +146,18 @@
                     </td>
                     <td valign="top"
                         class="value ${hasErrors(bean: userInstance, field: 'exchangesProvided', 'errors')}">
-                        <g:select name="exchangesProvided" from="${timebank.Exchange.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.exchangesProvided*.id}"
-                                  class="many-to-many"/>
+
+                        <ul class="one-to-many">
+                            <g:each in="${userInstance?.exchangesProvided ?}" var="e">
+                                <li><g:link controller="exchange" action="show"
+                                            id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                            </g:each>
+                            <li class="add">
+                                <g:link controller="exchange" action="create"
+                                        params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'exchange.label', default: 'Exchange')])}</g:link>
+                            </li>
+                        </ul>
+
                     </td>
                 </tr>
 
@@ -141,9 +168,18 @@
                     </td>
                     <td valign="top"
                         class="value ${hasErrors(bean: userInstance, field: 'exchangesReceived', 'errors')}">
-                        <g:select name="exchangesReceived" from="${timebank.Exchange.list()}" multiple="multiple"
-                                  optionKey="id" size="5" value="${userInstance?.exchangesReceived*.id}"
-                                  class="many-to-many"/>
+
+                        <ul class="one-to-many">
+                            <g:each in="${userInstance?.exchangesReceived ?}" var="e">
+                                <li><g:link controller="exchange" action="show"
+                                            id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                            </g:each>
+                            <li class="add">
+                                <g:link controller="exchange" action="create"
+                                        params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'exchange.label', default: 'Exchange')])}</g:link>
+                            </li>
+                        </ul>
+
                     </td>
                 </tr>
 
@@ -153,7 +189,7 @@
                                                               default="Offered Skills"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'offeredSkills', 'errors')}">
-                        <g:select name="offeredSkills" from="${timebank.Offer.list()}" multiple="multiple"
+                        <g:select name="offeredSkills" from="${timebank.Skill.list()}" multiple="multiple"
                                   optionKey="id" size="5" value="${userInstance?.offeredSkills*.id}"
                                   class="many-to-many"/>
                     </td>
@@ -186,16 +222,6 @@
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'passwordExpired', 'errors')}">
                         <g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="skills"><g:message code="user.skills.label" default="Skills"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'skills', 'errors')}">
-                        <g:select name="skills" from="${timebank.Skill.list()}" multiple="multiple" optionKey="id"
-                                  size="5" value="${userInstance?.skills*.id}" class="many-to-many"/>
                     </td>
                 </tr>
 

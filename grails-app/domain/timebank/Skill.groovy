@@ -6,5 +6,6 @@ class Skill {
     String description
 
     static constraints = {
+        description nullable: true
     }
 }

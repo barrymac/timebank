@@ -18,7 +18,8 @@ class ExchangeController {
     def listMyExchanges = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
 
-        render(view: listMyExchanges, model: Exchange.findByProvider(springSecurityService.getCurrentUser()) as User)
+        println(User.findByUsername(springSecurityService.getCurrentUser()).username)
+        render(view: listMyExchanges, model: Exchange.findByProvider(User.findByUsername(springSecurityService.getCurrentUser()).username))
 
 //        [exchangeInstanceList: Exchange.findByProvider(springSecurityService.getCurrentUser()), exchangeInstanceTotal: Exchange.count()]
     }

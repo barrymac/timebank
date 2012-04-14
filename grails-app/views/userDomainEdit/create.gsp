@@ -98,6 +98,15 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
+                        <joda:periodPicker name="balance" value="${userInstance?.balance}"></joda:periodPicker>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="enabled"><g:message code="user.enabled.label" default="Enabled"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'enabled', 'errors')}">

@@ -49,7 +49,9 @@ class UserProfileController extends UserController {
 
     def addSkill = {
         def userInstance = User.get(params.id)
-        userInstance.offeredSkills.add(Skill.findByName(params.txtSkill))
+        println(params)
+//        userInstance.offeredSkills.add(Skill.findByName(params.txtSkill))
+        userInstance.offeredSkills.add(new Skill(name: params.txtSkill, description: ' ').save(failOnError: true))
         userInstance.save()
         if (userInstance) {
             render(view: "editProfile", model: [userInstance: userInstance])
