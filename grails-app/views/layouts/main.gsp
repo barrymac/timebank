@@ -63,10 +63,10 @@
         </li>
         <sec:ifLoggedIn>
             <li></li>
-            <li>Welcome
-            %{--<sec:username/>--}%
-            %{--<sec:loggedInUserInfo field="firstName"/>--}%
-            </li>
+        %{--<li>Welcome--}%
+        %{--<sec:username/>--}%
+        %{--<sec:loggedInUserInfo field="username"/>--}%
+        %{--</li>--}%
         %{--<li>Balance: ${session.balance}</li>--}%
             <li><g:link controller="userProfile" action="editProfile" params="">My Profile</g:link></li>
             <li><g:link controller="logout">Log out</g:link></li>
