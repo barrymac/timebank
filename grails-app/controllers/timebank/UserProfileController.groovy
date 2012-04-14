@@ -49,21 +49,16 @@ class UserProfileController extends UserController {
 
     def addSkill = {
         def userInstance = User.get(params.id)
-        println(params)
 
         Skill newSkill = Skill.findByName(params.txtSkill)
         if (!newSkill) {
             newSkill = new Skill(name: params.txtSkill, description: ' ').save(flush: true)
         }
+        UserSkill userSkill = new UserSkill(user: userInstance, skill: newSkill)
 
-        UserSkill.link(userInstance, newSkill)
-//        userInstance.addToOfferedSkills(newSkill)
-
-        if (!userInstance.hasErrors() && userInstance.save(flush: true)) {
+        if (!userSkill.hasErrors() && userSkill.save(flush: true)) {
             flash.message = "${message(code: 'default.updated.profile.message')}"
-            userCache.removeUserFromCache userInstance.username
             render(view: "editProfile", model: [userInstance: userInstance])
-//                redirect(action: "editProfile", id: userInstance.id)
         }
         else {
             render(view: "editProfile", model: [userInstance: userInstance])

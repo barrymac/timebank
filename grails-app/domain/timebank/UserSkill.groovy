@@ -3,6 +3,8 @@ package timebank
 class UserSkill {
 
     static belongsTo = [user: User, skill: Skill]
+    User user
+    Skill skill
 
     static UserSkill link(user, skill) {
         def m = UserSkill.findByUserAndSkill(user, skill)

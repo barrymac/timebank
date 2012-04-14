@@ -47,11 +47,7 @@ class User {
     }
 
     List offeredSkills() {
-        return UserSkill.collect {
-            int i = 1
-            i = 1
-            it.skill
-        }
+//        return UserSkill.collect {it.skill}
     }
 
     List addToOfferedSkills(Skill skill) {

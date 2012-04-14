@@ -30,8 +30,6 @@ class BootStrap {
             openIdController.createNewAccount('andy.haigh@gmail.com', '', 'https://www.google.com/accounts/o8/id?id=AItOawkkBrIMoVxXARG_qgTb74iH31WaKLELORc')
             openIdController.createNewAccount('localbarry', '', 'https://www.google.com/accounts/o8/id?id=AItOawmQ9zbV5SweUFATl46-ixAP7wxIaj_c590')
         } catch (e) {
-            int i = 1
-            i = 1
             println(e.cause)
             println('user probably already existed')
         }

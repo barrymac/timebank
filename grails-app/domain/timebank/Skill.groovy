@@ -27,8 +27,6 @@ class Skill implements Comparable {
     }
 
     List addToUsers(User user) {
-        int i = 1
-        i = 1
         UserSkill.link(this, user)
         return users()
     }
