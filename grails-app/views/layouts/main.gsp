@@ -70,15 +70,16 @@
         %{--<li>Balance: ${session.balance}</li>--}%
             <li><g:link controller="userProfile" action="editProfile" params="">My Profile</g:link></li>
             <li><g:link controller="logout">Log out</g:link></li>
-            <sec:ifAllGranted roles="ROLE_ADMIN,ROLE_SUPERVISOR">
-                <li><g:link controller="offer" action="create" params="">Offer a Skill</g:link></li>
-                <li><g:link controller="request" action="create">Make a Request</g:link></li>
-                <li><g:link controller="offer" action="list" params="">My Offers</g:link></li>
-                <li><g:link controller="request" action="list">Browse Requests</g:link></li>
-                <li><g:link controller="tag" action="create">Create a tag</g:link></li>
-                <li><g:link controller="skill" action="create">Create a skill</g:link></li>
-                <li><g:link controller="tag" action="list">List tags</g:link></li>
-                <li><g:link controller="user" action="list">List People</g:link></li>
+            <sec:ifAllGranted roles="ROLE_ADMIN">
+            %{--<li><g:link controller="offer" action="create" params="">Offer a Skill</g:link></li>--}%
+            %{--<li><g:link controller="request" action="create">Make a Request</g:link></li>--}%
+            %{--<li><g:link controller="offer" action="list" params="">My Offers</g:link></li>--}%
+            %{--<li><g:link controller="request" action="list">Browse Requests</g:link></li>--}%
+            %{--<li><g:link controller="tag" action="create">Create a tag</g:link></li>--}%
+            %{--<li><g:link controller="skill" action="create">Create a skill</g:link></li>--}%
+            %{--<li><g:link controller="tag" action="list">List tags</g:link></li>--}%
+            %{--<li><g:link controller="user" action="list">List People</g:link></li>--}%
+                <li><g:link controller="userProfile" action="list">List People</g:link></li>
             </sec:ifAllGranted>
 
             <g:form url='[controller: "searchable", action: "index"]' id="searchableForm" name="searchableForm"

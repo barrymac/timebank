@@ -12,9 +12,6 @@
                 source:"${createLink( action: 'ajaxSkillSearch')}"
             });
         });
-
-        <s2ui:initCheckboxes/>
-
     </script>
 </head>
 

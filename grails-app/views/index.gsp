@@ -10,14 +10,6 @@
                 $('#openIdLoginForm').submit();
             });
 
-            $('#facebookLogin').click(function () {
-                $('#facebookLoginForm').submit();
-            });
-
-//$('#openIdLoginForm').submit(function() {
-//  alert('Handler for .submit() called.');
-//  return false;
-//});
         });
     </script>
     %{--<g:include view="gspJsSnips/tagsAutoMultiJs.gsp"/>--}%

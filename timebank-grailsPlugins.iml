@@ -12,6 +12,8 @@
           <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/mail-1.0/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/mail-1.0/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/searchable-0.6.3/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-oauth2-provider-0.3-SNAPSHOT/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-oauth2-provider-0.3-SNAPSHOT/grails-app/views" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -67,6 +69,10 @@
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-facebook-0.6.2/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-facebook-0.6.2/grails-app/taglib" isTestSource="false" />
     </content>
+    <content url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-oauth2-provider-0.3-SNAPSHOT">
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-oauth2-provider-0.3-SNAPSHOT/grails-app/i18n" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-oauth2-provider-0.3-SNAPSHOT/grails-app/controllers" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-openid-1.0.3">
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-openid-1.0.3/src/java" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/spring-security-openid-1.0.3/src/groovy" isTestSource="false" />
@@ -111,6 +117,15 @@
           <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-simple/jars/grails-datastore-simple-1.0.0.RC1.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-gorm-test/jars/grails-datastore-gorm-test-1.0.0.RC1.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/joda-time/joda-time-hibernate/jars/joda-time-hibernate-1.2.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security/spring-security-config/jars/spring-security-config-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-expression/jars/spring-expression-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-aop/jars/spring-aop-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-asm/jars/spring-asm-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.0.3.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security.oauth/spring-security-oauth/jars/spring-security-oauth-1.0.0.M3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>

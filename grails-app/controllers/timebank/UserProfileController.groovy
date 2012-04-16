@@ -3,16 +3,24 @@ package timebank
 import grails.converters.JSON
 import grails.plugins.springsecurity.Secured
 import grails.plugins.springsecurity.ui.UserController
+import org.joda.time.Duration
 
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
 class UserProfileController extends UserController {
 
     def index = { }
 
-    @Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    @Secured(['ROLE_ADMIN'])
+    def list = {
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [userInstanceList: User.list(params), userInstanceTotal: User.count()]
+    }
+
     def editProfile = {
         def userInstance
         userInstance = springSecurityService.currentUser
-
+        int i = 1
+        i = 1
         if (!userInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
             render(view: "editProfile", model: [userInstance: userInstance])
@@ -63,6 +71,33 @@ class UserProfileController extends UserController {
         else {
             render(view: "editProfile", model: [userInstance: userInstance])
         }
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    def updateBalance = {
+        def userInstance = User.get(params.id)
+        println(params)
+        userInstance.balance = new Duration((Long.parseLong(params.balance) * 1000 * 60 * 60))
+        if (!userInstance.hasErrors() && userInstance.save(flush: true)) {
+            flash.message = "${message(code: 'default.updated.profile.message')}"
+            userCache.removeUserFromCache userInstance.username
+            int i = 1
+            i = 1
+
+            render(view: "updateBalance", model: [userInstance: userInstance])
+//            render(view: "list", model: [userInstance: userInstance])
+        }
+        else {
+            redirect(action: "showBalance", model: [userInstance: userInstance])
+        }
+
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    def showBalance = {
+        def userInstance = User.get(params.id)
+
+        render(view: "updateBalance", model: [userInstance: userInstance])
     }
 
     def suggestSkill = {

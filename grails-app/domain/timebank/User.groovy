@@ -13,12 +13,13 @@ class User {
 
     String firstName
     String secondName
+    def Address address
     LocalDate dob
     SortedSet<Exchange> exchangesProvided
     SortedSet<Exchange> exchangesReceived
     SortedSet<Request> createdRequests
 //    SortedSet<Skill> offeredSkills
-    Duration balance = new Duration(0)
+    Duration balance
 
     String username
     String password
@@ -30,6 +31,7 @@ class User {
     static constraints = {
         firstName blank: true, nullable: true
         secondName blank: true, nullable: true
+        address nullable: true
         dob blank: true, nullable: true
         offeredSkills unique: true
         username blank: false, unique: true
@@ -43,7 +45,15 @@ class User {
     }
 
     def getBalance() {
-        balance.toStandardHours().hours
+        int i = 1
+        i = 1
+        if (balance) {
+            println("balance: ${balance.toStandardHours().hours}")
+            return balance.toStandardHours().hours
+        } else {
+            balance = new Duration(0)
+            return balance.toStandardHours().hours
+        }
     }
 
     List offeredSkills() {

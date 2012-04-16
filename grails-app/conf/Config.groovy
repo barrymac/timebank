@@ -104,6 +104,12 @@ grails.plugins.springsecurity.rememberMe.persistentToken.domainClassName = 'time
 
 grails.plugins.springsecurity.openid.domainClass = 'timebank.OpenID'
 
+grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
+
+//grails.plugins.springsecurity.interceptUrlMap = [
+//        '/**': ['IS_AUTHENTICATED_FULLY']
+//]
+
 // Added by the Joda-Time plugin:
 grails.gorm.default.mapping = {
     "user-type" type: org.joda.time.contrib.hibernate.PersistentDateTime, class: org.joda.time.DateTime

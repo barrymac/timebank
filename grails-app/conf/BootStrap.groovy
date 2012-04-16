@@ -37,6 +37,9 @@ class BootStrap {
         def thisuser = User.findByUsername("barry")
         UserRole.create thisuser, roleDeveloper
         UserRole.create thisuser, roleAdmin
+        thisuser = User.findByUsername("localbarry")
+        UserRole.create thisuser, roleDeveloper
+        UserRole.create thisuser, roleAdmin
         thisuser = User.findByUsername("chris")
         UserRole.create thisuser, roleAdmin
         thisuser = User.findByUsername("stravick")
