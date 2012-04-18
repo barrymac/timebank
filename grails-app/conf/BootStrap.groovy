@@ -27,7 +27,6 @@ class BootStrap {
             openIdController.createNewAccount('barry', '', 'https://www.google.com/accounts/o8/id?id=AItOawmBRx2IM-VMyGpzz8IxvO23zBXGuvWxG-M')
             openIdController.createNewAccount('stravick', '', 'https://www.google.com/accounts/o8/id?id=AItOawmrOgRF7m7YcQacfvwX0PE3e2HVvBpOkD4')
             openIdController.createNewAccount('chris', '', 'https://www.google.com/accounts/o8/id?id=AItOawmYzLFFZshIPUuP2Y9bhln1jfV1HHL-ows')
-            openIdController.createNewAccount('andy.haigh@gmail.com', '', 'https://www.google.com/accounts/o8/id?id=AItOawkkBrIMoVxXARG_qgTb74iH31WaKLELORc')
             openIdController.createNewAccount('localbarry', '', 'https://www.google.com/accounts/o8/id?id=AItOawmQ9zbV5SweUFATl46-ixAP7wxIaj_c590')
         } catch (e) {
             println(e.cause)
