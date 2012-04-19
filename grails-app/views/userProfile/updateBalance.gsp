@@ -3,7 +3,23 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
-    <title><g:message code="default.edit.profile"/></title>
+    <title><g:message code="default.update.balance"/></title>
+    <script>
+        $(document).ready(function () {
+            $.("#addHour").click(function () {
+                debugger
+                $.ajax(
+
+                )
+            });
+            $.("#subtractHour").click(function () {
+                debugger
+                $.ajax(
+
+                )
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -13,7 +29,8 @@
 </div>
 
 <div class="body">
-    <h4><g:message code="default.edit.profile"/></h4>
+    <br>
+    <h4><g:message code="default.update.balance"/></h4>
     <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
     </g:if>
@@ -55,7 +72,12 @@
                         <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
-                        <g:textField name="balance" value="${userInstance?.balance}"/>
+                        ${userInstance?.balance} hours &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <img id="addHour" src='${resource(dir: 'images/icons', file: 'add.png', plugin: 'famfamfam')}'/>
+                        <img id="subtractHour"
+                             src='${resource(dir: 'images/icons', file: 'delete.png', plugin: 'famfamfam')}'/>
+                        %{--<g:textField name="balance" value="${userInstance?.balance}"/>--}%
                         %{--<joda:timePicker name="balance" value="${userInstance?.balance}" />--}%
                         %{--<joda:timeField name="balance" value="${userInstance?.balance}"></joda:timeField>--}%
                     </td>
@@ -81,8 +103,8 @@
         </div>
 
         <div class="buttons">
-            <span class="button"><g:actionSubmit class="save" action="updateBalance"
-                                                 value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>
+            %{--<span class="button"><g:actionSubmit class="save" action="updateBalance"--}%
+            %{--value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>--}%
         </div>
     </g:form>
 </div>

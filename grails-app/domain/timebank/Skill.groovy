@@ -17,6 +17,11 @@ class Skill implements Comparable {
         return "$name"
     }
 
+    static searchable = [
+            only: ['name', 'description'],
+            spellCheck: ['name']
+    ]
+
 
     int compareTo(other) {
         return name.compareTo(other.name)

@@ -78,7 +78,7 @@
             %{--<li><g:link controller="tag" action="create">Create a tag</g:link></li>--}%
             %{--<li><g:link controller="skill" action="create">Create a skill</g:link></li>--}%
             %{--<li><g:link controller="tag" action="list">List tags</g:link></li>--}%
-            %{--<li><g:link controller="user" action="list">List People</g:link></li>--}%
+                <li><g:link controller="user" action="create">Add User</g:link></li>
                 <li><g:link controller="userProfile" action="list">List People</g:link></li>
             </sec:ifAllGranted>
 

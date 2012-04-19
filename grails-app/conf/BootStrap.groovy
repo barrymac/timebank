@@ -14,15 +14,6 @@ class BootStrap {
         def roleFb = new Role(authority: 'ROLE_FACEBOOK').save()
         def roleDeveloper = new Role(authority: 'ROLE_DEVELOPMENT').save()
 
-        def user = new User(username: 'user', password: 'password', enabled: true).save()
-        def admin = new User(username: 'admin', password: 'password', enabled: true).save()
-
-        UserRole.create user, roleUser
-        UserRole.create user, roleFb
-        UserRole.create admin, roleUser
-        UserRole.create admin, roleAdmin, true
-
-
         try {
             openIdController.createNewAccount('barry', '', 'https://www.google.com/accounts/o8/id?id=AItOawmBRx2IM-VMyGpzz8IxvO23zBXGuvWxG-M')
             openIdController.createNewAccount('stravick', '', 'https://www.google.com/accounts/o8/id?id=AItOawmrOgRF7m7YcQacfvwX0PE3e2HVvBpOkD4')
@@ -43,8 +34,6 @@ class BootStrap {
         UserRole.create thisuser, roleAdmin
         thisuser = User.findByUsername("stravick")
         UserRole.create thisuser, roleAdmin
-
-//        me.exchangesProvided.add(new Exchange(startTime: new DateTime(new Date()), endTime: new DateTime(new Date()), provider: me, receiver: user ))
 
     }
 

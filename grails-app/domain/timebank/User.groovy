@@ -7,14 +7,16 @@ import org.joda.time.contrib.hibernate.PersistentLocalDate
 
 class User {
 
-    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange,
-            offeredSkills: UserSkill, createdRequests: Request]
     static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
+    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange, offeredSkills: UserSkill, createdRequests: Request, referees: Referee]
 
     String firstName
     String secondName
     def Address address
     LocalDate dob
+    String type
+    String phoneNumber
+    String email
     SortedSet<Exchange> exchangesProvided
     SortedSet<Exchange> exchangesReceived
     SortedSet<Request> createdRequests
@@ -36,6 +38,9 @@ class User {
         offeredSkills unique: true
         username blank: false, unique: true
         password blank: true
+        type inList: ['organisation', 'group', 'individual'], blank: true, nullable: true
+        phoneNumber length: 1..12, unique: true, matches: /[0-9]/, blank: true, nullable: true
+        email blank: true, nullable: true, email: true
     }
 
     static mapping = {
@@ -83,6 +88,15 @@ class User {
             encodePassword()
         }
     }
+
+    static searchable = [
+            only: ['firstName', 'secondName', 'username'],
+            spellCheck: ['firstName', 'secondName', 'username']
+    ]
+
+//    static searchable = {
+//        spellCheck "include"
+//    }
 
     transient springSecurityService
 //    transient balance = getBalance()
