@@ -50,6 +50,16 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="address"><g:message code="user.address.label" default="Address"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address', 'errors')}">
+                        <g:select id="address" name="address.id" from="${timebank.Address.list()}" optionKey="id"
+                                  value="${userInstance?.address?.id}" class="many-to-one" noSelection="['null': '']"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="dob"><g:message code="user.dob.label" default="Dob"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dob', 'errors')}">
@@ -78,6 +88,37 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="type"><g:message code="user.type.label" default="Type"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'type', 'errors')}">
+                        <g:select name="type" from="${userInstance.constraints.type.inList}"
+                                  value="${userInstance?.type}" valueMessagePrefix="user.type" noSelection="['': '']"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="phoneNumber"><g:message code="user.phoneNumber.label"
+                                                            default="Phone Number"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'phoneNumber', 'errors')}">
+                        <g:textField name="phoneNumber" pattern="${userInstance.constraints.phoneNumber.matches}"
+                                     value="${userInstance?.phoneNumber}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="email"><g:message code="user.email.label" default="Email"/></label>
+                    </td>
+                </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'email', 'errors')}">
+                        <g:field type="email" name="email" value="${userInstance?.email}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="accountExpired"><g:message code="user.accountExpired.label"
                                                                default="Account Expired"/></label>
                     </td>
@@ -93,15 +134,6 @@
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'accountLocked', 'errors')}">
                         <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
-                        <joda:periodPicker name="balance" value="${userInstance?.balance}"></joda:periodPicker>
                     </td>
                 </tr>
 

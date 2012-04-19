@@ -48,9 +48,31 @@
             </tr>
 
             <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.address.label" default="Address"/></td>
+
+                <td valign="top" class="value"><g:link controller="address" action="show"
+                                                       id="${userInstance?.address?.id}">${userInstance?.address?.encodeAsHTML()}</g:link></td>
+
+            </tr>
+
+            <tr class="prop">
                 <td valign="top" class="name"><g:message code="user.dob.label" default="Dob"/></td>
 
                 <td valign="top" class="value">${fieldValue(bean: userInstance, field: "dob")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.offeredSkills.label" default="Offered Skills"/></td>
+
+                <td valign="top" style="text-align: left;" class="value">
+                    <ul>
+                        <g:each in="${userInstance.offeredSkills}" var="o">
+                            <li><g:link controller="userSkill" action="show"
+                                        id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
+                        </g:each>
+                    </ul>
+                </td>
 
             </tr>
 
@@ -69,6 +91,27 @@
             </tr>
 
             <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.type.label" default="Type"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "type")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.phoneNumber.label" default="Phone Number"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "phoneNumber")}</td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.email.label" default="Email"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "email")}</td>
+
+            </tr>
+
+            <tr class="prop">
                 <td valign="top" class="name"><g:message code="user.accountExpired.label"
                                                          default="Account Expired"/></td>
 
@@ -80,13 +123,6 @@
                 <td valign="top" class="name"><g:message code="user.accountLocked.label" default="Account Locked"/></td>
 
                 <td valign="top" class="value"><g:formatBoolean boolean="${userInstance?.accountLocked}"/></td>
-
-            </tr>
-
-            <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.balance.label" default="Balance"/></td>
-
-                <td valign="top" class="value">${fieldValue(bean: userInstance, field: "balance")}</td>
 
             </tr>
 
@@ -143,19 +179,6 @@
             </tr>
 
             <tr class="prop">
-                <td valign="top" class="name"><g:message code="user.offeredSkills.label" default="Offered Skills"/></td>
-
-                <td valign="top" style="text-align: left;" class="value">
-                    <ul>
-                        <g:each in="${userInstance.offeredSkills}" var="o">
-                            <li><g:link controller="skill" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
-                        </g:each>
-                    </ul>
-                </td>
-
-            </tr>
-
-            <tr class="prop">
                 <td valign="top" class="name"><g:message code="user.openIds.label" default="Open Ids"/></td>
 
                 <td valign="top" style="text-align: left;" class="value">
@@ -174,6 +197,20 @@
                                                          default="Password Expired"/></td>
 
                 <td valign="top" class="value"><g:formatBoolean boolean="${userInstance?.passwordExpired}"/></td>
+
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name"><g:message code="user.referees.label" default="Referees"/></td>
+
+                <td valign="top" style="text-align: left;" class="value">
+                    <ul>
+                        <g:each in="${userInstance.referees}" var="r">
+                            <li><g:link controller="referee" action="show"
+                                        id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+                        </g:each>
+                    </ul>
+                </td>
 
             </tr>
 

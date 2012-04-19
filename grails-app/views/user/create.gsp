@@ -5,8 +5,9 @@
 </head>
 
 <body>
+<br>
 
-<h3><g:message code="default.create.label" args="[entityName]"/></h3>
+<h3><g:message code="default.add.user.label"/></h3>
 
 <g:form action="save" name='userCreateForm'>
 
@@ -58,7 +59,36 @@
             </td>
             <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
                 %{--<joda:periodPicker name="balance" value="${userInstance?.balance}"></joda:periodPicker>--}%
-                <joda:timePicker name="balance" value="${userInstance?.balance}"/>
+                <g:textField name="balance" value="${userInstance?.balance}"/>
+                %{--<joda:timePicker name="balance" value="${userInstance?.balance}"/>--}%
+            </td>
+        </tr>
+
+        <tr class="prop">
+            <td valign="top" class="name">
+                <label for="phoneNumber"><g:message code="user.phoneNumber.label" default="Phone Number"/></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'phoneNumber', 'errors')}">
+                <g:textField name="phoneNumber" value="${userInstance?.phoneNumber}"/>
+            </td>
+        </tr>
+
+        <tr class="prop">
+            <td valign="top" class="name">
+                <label for="email"><g:message code="user.email.label" default="Email"/></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'email', 'errors')}">
+                <g:field type="email" name="email" value="${userInstance?.email}"/>
+            </td>
+        </tr>
+
+        <tr class="prop">
+            <td valign="top" class="name">
+                <label for="address"><g:message code="user.address.label" default="Address"/></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address', 'errors')}">
+                <g:select id="address" name="address.id" from="${timebank.Address.list()}" optionKey="id"
+                          value="${userInstance?.address?.id}" class="many-to-one" noSelection="['null': '']"/>
             </td>
         </tr>
 
@@ -138,15 +168,6 @@
                           class="many-to-many"/>
             </td>
         </tr>
-
-        Address
-        type of user: organisation, group, individual (from drop down menu)
-        optional fields:
-        phone no
-        email
-        add 'Offered' from drop down menu (i will email list of these) and a note on each 'Offered' added
-        add 'Requested' from drop down menu (i will email list of these) and a note on each 'Requested' added
-
         </tbody>
     </table>
 
