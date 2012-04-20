@@ -79,15 +79,11 @@
                         <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
-                        %{--${userInstance?.balance} hours &nbsp;&nbsp;&nbsp;&nbsp;--}%
-                        <div id="prevBalance">Was ${userInstance?.balance.toStandardHours().hours} hours</div><br>
+                        <div id="prevBalance">Was ${fieldValue(bean: userInstance, field: "balance")}</div><br>
 
-                        <div id="balance">${userInstance?.balance.toStandardHours().hours} hours</div><br>
+                        <div id="balance">${fieldValue(bean: userInstance, field: "balance")}</div><br>
                         <img id="addHour" src='${fam.icon(name: 'add')}'/>
                         <img id="subtractHour" src='${fam.icon(name: 'delete')}'/>
-                        %{--<g:textField name="balance" value="${userInstance?.balance}"/>--}%
-                        %{--<joda:timePicker name="balance" value="${userInstance?.balance}" />--}%
-                        %{--<joda:timeField name="balance" value="${userInstance?.balance}"></joda:timeField>--}%
                     </td>
                 </tr>
 
