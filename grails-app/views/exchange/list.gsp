@@ -27,6 +27,8 @@
 
                 <g:sortableColumn property="id" title="${message(code: 'exchange.id.label', default: 'Id')}"/>
 
+                <g:sortableColumn property="date" title="${message(code: 'exchange.date.label', default: 'Date')}"/>
+
                 <g:sortableColumn property="endTime"
                                   title="${message(code: 'exchange.endTime.label', default: 'End Time')}"/>
 
@@ -45,6 +47,8 @@
 
                     <td><g:link action="show"
                                 id="${exchangeInstance.id}">${fieldValue(bean: exchangeInstance, field: "id")}</g:link></td>
+
+                    <td>${fieldValue(bean: exchangeInstance, field: "date")}</td>
 
                     <td>${fieldValue(bean: exchangeInstance, field: "endTime")}</td>
 

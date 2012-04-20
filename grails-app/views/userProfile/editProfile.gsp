@@ -61,7 +61,7 @@
                         <label for="dob"><g:message code="user.dob.label" default="Dob"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dob', 'errors')}">
-                        <joda:datePicker name="Date of Birth" value="${userInstance?.dob}"
+                        <joda:datePicker name="dob" value="${userInstance?.dob}"
                                          noSelection="['': '']"></joda:datePicker>
                     </td>
                 </tr>
@@ -70,7 +70,9 @@
                     <td valign="top" class="name"><g:message code="user.balance.label" default="Balance"/></td>
 
                     <td valign="top" class="value">
-                        ${userInstance.balance} hours
+                        %{--${userInstance.balance} hours--}%
+                        %{--<g:hiddenField name="balance" value="userInstance.balance"/>--}%
+                        ${userInstance?.balance.toStandardHours().hours}
                     </td>
 
                 </tr>

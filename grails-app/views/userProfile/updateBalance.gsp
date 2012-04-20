@@ -6,19 +6,26 @@
     <title><g:message code="default.update.balance"/></title>
     <script>
         $(document).ready(function () {
-            $.("#addHour").click(function () {
-                debugger
-                $.ajax(
 
-                )
+            $("#addHour").click(function () {
+                $.post("${request.contextPath}/ajax/addHour", {id: ${userInstance.id}},
+                        function (data) {
+                            $('#balance').fadeOut(200, function () {
+                                $('#balance').text(data.newBalance + ' hours').fadeIn(200);
+                            });
+                        });
             });
-            $.("#subtractHour").click(function () {
-                debugger
-                $.ajax(
 
-                )
+            $("#subtractHour").click(function () {
+                $.post("${request.contextPath}/ajax/subtractHour", {id: ${userInstance.id}},
+                        function (data) {
+                            $('#balance').fadeOut(200, function () {
+                                $('#balance').text(data.newBalance + ' hours').fadeIn(200);
+                            });
+                        });
             });
-        }
+
+        });
     </script>
 </head>
 
@@ -72,11 +79,12 @@
                         <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
-                        ${userInstance?.balance} hours &nbsp;&nbsp;&nbsp;&nbsp;
+                        %{--${userInstance?.balance} hours &nbsp;&nbsp;&nbsp;&nbsp;--}%
+                        <div id="prevBalance">Was ${userInstance?.balance.toStandardHours().hours} hours</div><br>
 
-                        <img id="addHour" src='${resource(dir: 'images/icons', file: 'add.png', plugin: 'famfamfam')}'/>
-                        <img id="subtractHour"
-                             src='${resource(dir: 'images/icons', file: 'delete.png', plugin: 'famfamfam')}'/>
+                        <div id="balance">${userInstance?.balance.toStandardHours().hours} hours</div><br>
+                        <img id="addHour" src='${fam.icon(name: 'add')}'/>
+                        <img id="subtractHour" src='${fam.icon(name: 'delete')}'/>
                         %{--<g:textField name="balance" value="${userInstance?.balance}"/>--}%
                         %{--<joda:timePicker name="balance" value="${userInstance?.balance}" />--}%
                         %{--<joda:timeField name="balance" value="${userInstance?.balance}"></joda:timeField>--}%
@@ -102,10 +110,10 @@
             </table>
         </div>
 
-        <div class="buttons">
-            %{--<span class="button"><g:actionSubmit class="save" action="updateBalance"--}%
-            %{--value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>--}%
-        </div>
+    %{--<div class="buttons">--}%
+    %{--<span class="button"><g:actionSubmit class="save" action="updateBalance"--}%
+    %{--value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>--}%
+    %{--</div>--}%
     </g:form>
 </div>
 </body>

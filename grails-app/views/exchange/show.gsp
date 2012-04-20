@@ -34,6 +34,13 @@
             </tr>
 
             <tr class="prop">
+                <td valign="top" class="name"><g:message code="exchange.date.label" default="Date"/></td>
+
+                <td valign="top" class="value">${fieldValue(bean: exchangeInstance, field: "date")}</td>
+
+            </tr>
+
+            <tr class="prop">
                 <td valign="top" class="name"><g:message code="exchange.endTime.label" default="End Time"/></td>
 
                 <td valign="top" class="value">${fieldValue(bean: exchangeInstance, field: "endTime")}</td>

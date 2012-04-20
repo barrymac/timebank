@@ -4,6 +4,7 @@ import grails.converters.JSON
 import grails.plugins.springsecurity.Secured
 import grails.plugins.springsecurity.ui.UserController
 import org.joda.time.Duration
+import org.joda.time.LocalDate
 
 @Secured(['IS_AUTHENTICATED_REMEMBERED'])
 class UserProfileController extends UserController {
@@ -17,8 +18,8 @@ class UserProfileController extends UserController {
     }
 
     def editProfile = {
-        def userInstance
-        userInstance = springSecurityService.currentUser
+        User userInstance = springSecurityService.currentUser
+
         int i = 1
         i = 1
         if (!userInstance) {
@@ -31,18 +32,25 @@ class UserProfileController extends UserController {
     }
 
     def updateProfile = {
-        def userInstance = User.get(params.id)
+        User userInstance = springSecurityService.currentUser
+
+        int i = 1
+        i = 1
 
         if (userInstance) {
             if (params.version) {
                 def version = params.version.toLong()
                 if (userInstance.version > version) {
-                    userInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'exchange.label', default: 'Exchange')] as Object[], "Another user has updated this Profile while you were editing")
+                    userInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'user.label', default: 'User')] as Object[], "Another user has updated this Profile while you were editing")
                     render(view: "editProfile", model: [userInstance: userInstance])
                     return
                 }
             }
-            userInstance.properties = params
+            userInstance.firstName = params.firstName
+            userInstance.secondName = params.secondName
+            userInstance.dob = new LocalDate(params.dob_year as int, params.dob_month as int, params.dob_day as int)
+//            userInstance.dob = params.dob
+
             if (!userInstance.hasErrors() && userInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.profile.message')}"
                 userCache.removeUserFromCache userInstance.username

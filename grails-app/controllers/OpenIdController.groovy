@@ -1,6 +1,7 @@
 import org.codehaus.groovy.grails.plugins.springsecurity.openid.OpenIdAuthenticationFailureHandler as OIAFH
 
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
+import org.joda.time.Duration
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.savedrequest.DefaultSavedRequest
@@ -155,7 +156,8 @@ class OpenIdController {
             def user = new User(
                     username: username,
                     enabled: true,
-                    password: ''
+                    password: '',
+                    balance: new Duration(0)
             )
 
             user.addToOpenIds(url: openId)

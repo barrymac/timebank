@@ -33,6 +33,9 @@
                 <g:sortableColumn property="secondName"
                                   title="${message(code: 'user.secondName.label', default: 'Second Name')}"/>
 
+                <g:sortableColumn property="balance"
+                                  title="${message(code: 'user.secondName.label', default: 'Balance')}"/>
+
             </tr>
             </thead>
             <tbody>
@@ -43,8 +46,8 @@
                                 id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
 
                     <td>${fieldValue(bean: userInstance, field: "firstName")}</td>
-
                     <td>${fieldValue(bean: userInstance, field: "secondName")}</td>
+                    <td>${fieldValue(bean: userInstance, field: "balance")}</td>
 
                 </tr>
             </g:each>

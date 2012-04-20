@@ -1,5 +1,6 @@
 package timebank
 
+import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
 
 class Exchange {
@@ -8,8 +9,10 @@ class Exchange {
     User receiver
     LocalDateTime startTime
     LocalDateTime endTime
+    LocalDate date
 
     static constraints = {
+        date(nullable: true, unique: true)
     }
 
 //    transient Period timeTaken = new Period(startTime, endTime, PeriodType.yearMonthDayTime()).toString()

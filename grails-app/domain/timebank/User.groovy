@@ -2,8 +2,6 @@ package timebank
 
 import org.joda.time.Duration
 import org.joda.time.LocalDate
-import org.joda.time.contrib.hibernate.PersistentDuration
-import org.joda.time.contrib.hibernate.PersistentLocalDate
 
 class User {
 
@@ -44,22 +42,21 @@ class User {
     }
 
     static mapping = {
-        dob type: PersistentLocalDate
-        balance type: PersistentDuration, nullable: true, blank: true
+        balance nullable: true, blank: true
         password column: '`password`'
     }
 
-    def getBalance() {
-        int i = 1
-        i = 1
-        if (balance) {
-            println("balance: ${balance.toStandardHours().hours}")
-            return balance.toStandardHours().hours
-        } else {
-            balance = new Duration(0)
-            return balance.toStandardHours().hours
-        }
-    }
+//    def getBalance() {
+//        int i = 1
+//        i = 1
+//        if (balance) {
+//            println("balance: ${balance.toStandardHours().hours}")
+//            return balance.toStandardHours().hours
+//        } else {
+//            balance = new Duration(0)
+//            return balance.toStandardHours().hours
+//        }
+//    }
 
     List offeredSkills() {
 //        return UserSkill.collect {it.skill}

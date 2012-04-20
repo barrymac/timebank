@@ -36,6 +36,16 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="date"><g:message code="exchange.date.label" default="Date"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: exchangeInstance, field: 'date', 'errors')}">
+                        <joda:datePicker name="date" value="${exchangeInstance?.date}"
+                                         noSelection="['': '']"></joda:datePicker>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="endTime"><g:message code="exchange.endTime.label" default="End Time"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: exchangeInstance, field: 'endTime', 'errors')}">
