@@ -72,7 +72,7 @@
                     <td valign="top" class="value">
                         %{--${userInstance.balance} hours--}%
                         %{--<g:hiddenField name="balance" value="userInstance.balance"/>--}%
-                        ${userInstance?.balance.toStandardHours().hours}
+                        ${fieldValue(bean: userInstance, field: "balance")}
                     </td>
 
                 </tr>
