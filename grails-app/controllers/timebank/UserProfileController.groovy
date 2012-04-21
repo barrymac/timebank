@@ -19,15 +19,63 @@ class UserProfileController extends UserController {
 
     def editProfile = {
         User userInstance = springSecurityService.currentUser
-
         int i = 1
         i = 1
+
         if (!userInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
             render(view: "editProfile", model: [userInstance: userInstance])
         }
         else {
             return [userInstance: userInstance]
+        }
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    def editUserProfile = {
+        User userInstance = User.get(params.id)
+        int i = 1
+        i = 1
+
+        if (!userInstance) {
+            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
+            render(view: "editUserProfile", model: [userInstance: userInstance])
+        }
+        else {
+            render(view: "editUserProfile", model: [userInstance: userInstance])
+        }
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    def updateUserProfile = {
+        User userInstance = User.get(params.id)
+        int i = 1
+        i = 1
+
+        if (userInstance) {
+            if (params.version) {
+                def version = params.version.toLong()
+                if (userInstance.version > version) {
+                    userInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'user.label', default: 'User')] as Object[], "Another user has updated this Profile while you were editing")
+                    render(view: "editUserProfile", model: [userInstance: userInstance])
+                }
+            }
+            userInstance.firstName = params.firstName
+            userInstance.secondName = params.secondName
+            userInstance.dob = new LocalDate(params.dob_year as int, params.dob_month as int, params.dob_day as int)
+
+            if (!userInstance.hasErrors() && userInstance.save(flush: true)) {
+                flash.message = "${message(code: 'default.updated.profile.message')}"
+                userCache.removeUserFromCache userInstance.username
+                render(view: "list", model: [userInstanceList: User.list(params), userInstanceTotal: User.count()])
+            }
+            else {
+                render(view: "editUserProfile", model: [userInstance: userInstance])
+            }
+        }
+        else {
+            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
+            render(view: "list", model: [userInstanceList: User.list(params), userInstanceTotal: User.count()])
         }
     }
 

@@ -1,128 +1,243 @@
-<%@ page import="org.codehaus.groovy.grails.plugins.PluginManagerHolder" %>
-
-<sec:ifNotSwitched>
-    <sec:ifAllGranted roles='ROLE_SWITCH_USER'>
-        <g:if test='${user.username}'>
-            <g:set var='canRunAs' value='${true}'/>
-        </g:if>
-    </sec:ifAllGranted>
-</sec:ifNotSwitched>
-
+<%@ page import="timebank.User" %>
+<html>
 <head>
-    <meta name='layout' content='main'/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="layout" content="main"/>
     <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
     <title><g:message code="default.edit.label" args="[entityName]"/></title>
 </head>
 
 <body>
+<div class="nav">
+    <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+    </span>
+    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label"
+                                                                           args="[entityName]"/></g:link></span>
+    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label"
+                                                                               args="[entityName]"/></g:link></span>
+</div>
 
-<h3><g:message code="default.edit.label" args="[entityName]"/></h3>
+<div class="body">
+<h1><g:message code="default.edit.label" args="[entityName]"/></h1>
+<g:if test="${flash.message}">
+    <div class="message">${flash.message}</div>
+</g:if>
+<g:hasErrors bean="${userInstance}">
+    <div class="errors">
+        <g:renderErrors bean="${userInstance}" as="list"/>
+    </div>
+</g:hasErrors>
+<g:form method="post">
+    <g:hiddenField name="id" value="${userInstance?.id}"/>
+    <g:hiddenField name="version" value="${userInstance?.version}"/>
+    <div class="dialog">
+        <table>
+            <tbody>
 
-<g:form action="update" name='userEditForm' class="button-style">
-    <g:hiddenField name="id" value="${user?.id}"/>
-    <g:hiddenField name="version" value="${user?.version}"/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="username"><g:message code="user.username.label" default="Username"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'username', 'errors')}">
+                    <g:textField name="username" required="" value="${userInstance?.username}"/>
+                </td>
+            </tr>
 
-    <%
-        def tabData = []
-        tabData << [name: 'userinfo', icon: 'icon_user', messageCode: 'spring.security.ui.user.info']
-        tabData << [name: 'roles', icon: 'icon_role', messageCode: 'spring.security.ui.user.roles']
-        boolean isOpenId = PluginManagerHolder.pluginManager.hasGrailsPlugin('springSecurityOpenid')
-        if (isOpenId) {
-            tabData << [name: 'openIds', icon: 'icon_role', messageCode: 'spring.security.ui.user.openIds']
-        }
-    %>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="firstName"><g:message code="user.firstName.label" default="First Name"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'firstName', 'errors')}">
+                    <g:textField name="firstName" value="${userInstance?.firstName}"/>
+                </td>
+            </tr>
 
-    <s2ui:tabs elementId='tabs' height='375' data="${tabData}">
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="secondName"><g:message code="user.secondName.label" default="Second Name"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'secondName', 'errors')}">
+                    <g:textField name="secondName" value="${userInstance?.secondName}"/>
+                </td>
+            </tr>
 
-        <s2ui:tab name='userinfo' height='275'>
-            <table>
-                <tbody>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="address1"><g:message code="user.address1.label" default="Address1"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address1', 'errors')}">
+                    <g:textField name="address1" value="${userInstance?.address1}"/>
+                </td>
+            </tr>
 
-                <s2ui:textFieldRow name='username' labelCode='user.username.label' bean="${user}"
-                                   labelCodeDefault='Username' value="${user?.username}"/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="address2"><g:message code="user.address2.label" default="Address2"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address2', 'errors')}">
+                    <g:textField name="address2" value="${userInstance?.address2}"/>
+                </td>
+            </tr>
 
-                <s2ui:passwordFieldRow name='password' labelCode='user.password.label' bean="${user}"
-                                       labelCodeDefault='Password' value="${user?.password}"/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="postcode"><g:message code="user.postcode.label" default="Postcode"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'postcode', 'errors')}">
+                    <g:textField name="postcode" value="${userInstance?.postcode}"/>
+                </td>
+            </tr>
 
-                <s2ui:checkboxRow name='enabled' labelCode='user.enabled.label' bean="${user}"
-                                  labelCodeDefault='Enabled' value="${user?.enabled}"/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
+                    <joda:periodPicker name="balance" value="${userInstance?.balance}"
+                                       noSelection="['': '']"></joda:periodPicker>
+                </td>
+            </tr>
 
-                <s2ui:checkboxRow name='accountExpired' labelCode='user.accountExpired.label' bean="${user}"
-                                  labelCodeDefault='Account Expired' value="${user?.accountExpired}"/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="dob"><g:message code="user.dob.label" default="Dob"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dob', 'errors')}">
+                    <joda:datePicker name="dob" value="${userInstance?.dob}" noSelection="['': '']"></joda:datePicker>
+                </td>
+            </tr>
 
-                <s2ui:checkboxRow name='accountLocked' labelCode='user.accountLocked.label' bean="${user}"
-                                  labelCodeDefault='Account Locked' value="${user?.accountLocked}"/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="password"><g:message code="user.password.label" default="Password"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'password', 'errors')}">
+                    <g:textField name="password" value="${userInstance?.password}"/>
+                </td>
+            </tr>
 
-                <s2ui:checkboxRow name='passwordExpired' labelCode='user.passwordExpired.label' bean="${user}"
-                                  labelCodeDefault='Password Expired' value="${user?.passwordExpired}"/>
-                </tbody>
-            </table>
-        </s2ui:tab>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="userType"><g:message code="user.userType.label" default="User Type"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'userType', 'errors')}">
+                    <g:select name="userType" from="${userInstance.constraints.userType.inList}"
+                              value="${userInstance?.userType}" valueMessagePrefix="user.userType"
+                              noSelection="['': '']"/>
+                </td>
+            </tr>
 
-        <s2ui:tab name='roles' height='275'>
-            <g:each var="entry" in="${roleMap}">
-                <div>
-                    <g:checkBox name="${entry.key.authority}" value="${entry.value}"/>
-                    <g:link controller='role' action='edit'
-                            id='${entry.key.id}'>${entry.key.authority.encodeAsHTML()}</g:link>
-                </div>
-            </g:each>
-        </s2ui:tab>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="phoneNumber"><g:message code="user.phoneNumber.label" default="Phone Number"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'phoneNumber', 'errors')}">
+                    <g:textField name="phoneNumber" pattern="${userInstance.constraints.phoneNumber.matches}"
+                                 value="${userInstance?.phoneNumber}"/>
+                </td>
+            </tr>
 
-        <g:if test='${isOpenId}'>
-            <s2ui:tab name='openIds' height='275'>
-                <g:if test='${user?.openIds}'>
-                    <ul>
-                        <g:each var="openId" in="${user.openIds}">
-                            <li>${openId.url}</li>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="email"><g:message code="user.email.label" default="Email"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'email', 'errors')}">
+                    <g:field type="email" name="email" value="${userInstance?.email}"/>
+                </td>
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="accountExpired"><g:message code="user.accountExpired.label"
+                                                           default="Account Expired"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'accountExpired', 'errors')}">
+                    <g:checkBox name="accountExpired" value="${userInstance?.accountExpired}"/>
+                </td>
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="accountLocked"><g:message code="user.accountLocked.label"
+                                                          default="Account Locked"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'accountLocked', 'errors')}">
+                    <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}"/>
+                </td>
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="enabled"><g:message code="user.enabled.label" default="Enabled"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'enabled', 'errors')}">
+                    <g:checkBox name="enabled" value="${userInstance?.enabled}"/>
+                </td>
+            </tr>
+
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="offeredSkills"><g:message code="user.offeredSkills.label"
+                                                          default="Offered Skills"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'offeredSkills', 'errors')}">
+
+                    <ul class="one-to-many">
+                        <g:each in="${userInstance?.offeredSkills ?}" var="o">
+                            <li><g:link controller="userSkill" action="show"
+                                        id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
                         </g:each>
+                        <li class="add">
+                            <g:link controller="userSkill" action="create"
+                                    params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'userSkill.label', default: 'UserSkill')])}</g:link>
+                        </li>
                     </ul>
-                </g:if>
-                <g:else>
-                    No OpenIDs registered
-                </g:else>
-            </s2ui:tab>
-        </g:if>
 
-    </s2ui:tabs>
+                </td>
+            </tr>
 
-    <div style='float:left; margin-top: 10px;'>
-        <s2ui:submitButton elementId='update' form='userEditForm' messageCode='default.button.update.label'/>
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="openIds"><g:message code="user.openIds.label" default="Open Ids"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'openIds', 'errors')}">
 
-        <g:if test='${user}'>
-            <s2ui:deleteButton/>
-        </g:if>
+                    <ul class="one-to-many">
+                        <g:each in="${userInstance?.openIds ?}" var="o">
+                            <li><g:link controller="openID" action="show"
+                                        id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
+                        </g:each>
+                        <li class="add">
+                            <g:link controller="openID" action="create"
+                                    params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'openID.label', default: 'OpenID')])}</g:link>
+                        </li>
+                    </ul>
 
-        <g:if test='${canRunAs}'>
-            <a id="runAsButton">${message(code: 'spring.security.ui.runas.submit')}</a>
-        </g:if>
+                </td>
+            </tr>
 
+            <tr class="prop">
+                <td valign="top" class="name">
+                    <label for="passwordExpired"><g:message code="user.passwordExpired.label"
+                                                            default="Password Expired"/></label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'passwordExpired', 'errors')}">
+                    <g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}"/>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
     </div>
 
+    <div class="buttons">
+        <span class="button"><g:actionSubmit class="save" action="update"
+                                             value="${message(code: 'default.button.update.label', default: 'Update')}"/></span>
+        <span class="button"><g:actionSubmit class="delete" action="delete"
+                                             value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+                                             onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/></span>
+    </div>
 </g:form>
-
-<g:if test='${user}'>
-    <s2ui:deleteButtonForm instanceId='${user.id}'/>
-</g:if>
-
-<g:if test='${canRunAs}'>
-    <form name='runAsForm' action='${request.contextPath}/j_spring_security_switch_user' method='POST'>
-        <g:hiddenField name='j_username' value="${user.username}"/>
-        <input type='submit' class='s2ui_hidden_button'/>
-    </form>
-</g:if>
-
-<script>
-    $(document).ready(function () {
-        $('#username').focus();
-
-        <s2ui:initCheckboxes/>
-
-        $("#runAsButton").button();
-        $('#runAsButton').bind('click', function () {
-            document.forms.runAsForm.submit();
-        });
-    });
-</script>
-
+</div>
 </body>
+</html>

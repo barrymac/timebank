@@ -35,6 +35,8 @@
 
                 <g:sortableColumn property="balance"
                                   title="${message(code: 'user.secondName.label', default: 'Balance')}"/>
+                <td></td>
+                <td></td>
 
             </tr>
             </thead>
@@ -42,12 +44,14 @@
             <g:each in="${userInstanceList}" status="i" var="userInstance">
                 <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                    <td><g:link action="showBalance"
-                                id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
-
+                    <td>${fieldValue(bean: userInstance, field: "username")}</td>
                     <td>${fieldValue(bean: userInstance, field: "firstName")}</td>
                     <td>${fieldValue(bean: userInstance, field: "secondName")}</td>
                     <td>${fieldValue(bean: userInstance, field: "balance")}</td>
+                    <td><g:link action="showBalance"
+                                id="${userInstance.id}">Update Balance</g:link></td>
+                    <td><g:link action="editUserProfile"
+                                id="${userInstance.id}">Edit Profile</g:link></td>
 
                 </tr>
             </g:each>

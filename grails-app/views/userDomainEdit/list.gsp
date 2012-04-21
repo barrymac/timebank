@@ -27,6 +27,9 @@
 
                 <g:sortableColumn property="id" title="${message(code: 'user.id.label', default: 'Id')}"/>
 
+                <g:sortableColumn property="username"
+                                  title="${message(code: 'user.username.label', default: 'Username')}"/>
+
                 <g:sortableColumn property="firstName"
                                   title="${message(code: 'user.firstName.label', default: 'First Name')}"/>
 
@@ -39,9 +42,6 @@
                 <g:sortableColumn property="address2"
                                   title="${message(code: 'user.address2.label', default: 'Address2')}"/>
 
-                <g:sortableColumn property="postcode"
-                                  title="${message(code: 'user.postcode.label', default: 'Postcode')}"/>
-
             </tr>
             </thead>
             <tbody>
@@ -51,6 +51,8 @@
                     <td><g:link action="show"
                                 id="${userInstance.id}">${fieldValue(bean: userInstance, field: "id")}</g:link></td>
 
+                    <td>${fieldValue(bean: userInstance, field: "username")}</td>
+
                     <td>${fieldValue(bean: userInstance, field: "firstName")}</td>
 
                     <td>${fieldValue(bean: userInstance, field: "secondName")}</td>
@@ -58,8 +60,6 @@
                     <td>${fieldValue(bean: userInstance, field: "address1")}</td>
 
                     <td>${fieldValue(bean: userInstance, field: "address2")}</td>
-
-                    <td>${fieldValue(bean: userInstance, field: "postcode")}</td>
 
                 </tr>
             </g:each>

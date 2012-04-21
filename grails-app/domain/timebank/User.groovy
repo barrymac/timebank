@@ -16,7 +16,7 @@ class User {
     String address2
     String postcode
     LocalDate dob
-    String type
+    String userType = "individual"
     String phoneNumber
     String email
 //    SortedSet<Exchange> exchangesProvided
@@ -42,7 +42,7 @@ class User {
         balance nullable: true
         dob blank: true, nullable: true
         password blank: true
-        type inList: ['organisation', 'group', 'individual'], blank: true, nullable: true
+        userType inList: ["individual", "organisation", "group"]
         phoneNumber length: 1..12, unique: true, matches: /[0-9]/, blank: true, nullable: true
         email blank: true, nullable: true, email: true
 //        offeredSkills unique: true

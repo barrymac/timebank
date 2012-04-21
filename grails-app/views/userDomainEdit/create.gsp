@@ -32,6 +32,15 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
+                        <label for="username"><g:message code="user.username.label" default="Username"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'username', 'errors')}">
+                        <g:textField name="username" required="" value="${userInstance?.username}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
                         <label for="firstName"><g:message code="user.firstName.label" default="First Name"/></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'firstName', 'errors')}">
@@ -77,20 +86,21 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="dob"><g:message code="user.dob.label" default="Dob"/></label>
+                        <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dob', 'errors')}">
-                        <joda:datePicker name="dob" value="${userInstance?.dob}"
-                                         noSelection="['': '']"></joda:datePicker>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
+                        <joda:periodPicker name="balance" value="${userInstance?.balance}"
+                                           noSelection="['': '']"></joda:periodPicker>
                     </td>
                 </tr>
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="username"><g:message code="user.username.label" default="Username"/></label>
+                        <label for="dob"><g:message code="user.dob.label" default="Dob"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'username', 'errors')}">
-                        <g:textField name="username" required="" value="${userInstance?.username}"/>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dob', 'errors')}">
+                        <joda:datePicker name="dob" value="${userInstance?.dob}"
+                                         noSelection="['': '']"></joda:datePicker>
                     </td>
                 </tr>
 
@@ -105,11 +115,12 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="type"><g:message code="user.type.label" default="Type"/></label>
+                        <label for="userType"><g:message code="user.userType.label" default="User Type"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'type', 'errors')}">
-                        <g:select name="type" from="${userInstance.constraints.type.inList}"
-                                  value="${userInstance?.type}" valueMessagePrefix="user.type" noSelection="['': '']"/>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'userType', 'errors')}">
+                        <g:select name="userType" from="${userInstance.constraints.userType.inList}"
+                                  value="${userInstance?.userType}" valueMessagePrefix="user.userType"
+                                  noSelection="['': '']"/>
                     </td>
                 </tr>
 
@@ -150,15 +161,6 @@
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'accountLocked', 'errors')}">
                         <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}"/>
-                    </td>
-                </tr>
-
-                <tr class="prop">
-                    <td valign="top" class="name">
-                        <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
-                    </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
-                        <joda:periodPicker name="balance" value="${userInstance?.balance}"></joda:periodPicker>
                     </td>
                 </tr>
 

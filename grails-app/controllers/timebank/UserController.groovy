@@ -6,14 +6,13 @@ import grails.plugins.springsecurity.Secured
 class UserController extends grails.plugins.springsecurity.ui.UserController {
 
     def create = {
-        def user = lookupUserClass().newInstance(params)
-        user.enabled = true
-        [user: user, authorityList: sortedRoles()]
+        def userInstance = lookupUserClass().newInstance(params)
+        [userInstance: userInstance, authorityList: sortedRoles()]
     }
 
     def save = {
         def user = lookupUserClass().newInstance(params)
-        user.password = 'none'
+        user.password = 'changeme'
         if (!user.save(flush: true)) {
             render view: 'create', model: [user: user, authorityList: sortedRoles()]
             return
