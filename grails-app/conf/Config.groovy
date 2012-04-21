@@ -92,6 +92,9 @@ log4j = {
             'org.hibernate',
             'net.sf.ehcache.hibernate'
 
+    debug 'org.hibernate.SQL'
+    trace 'org.hibernate.type'
+
     warn 'org.mortbay.log'
 }
 

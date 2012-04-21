@@ -6,13 +6,14 @@ class AjaxController {
 
     def addHour = {
         log.debug(params)
-        def userInstance = User.get(params.id)
+        def userInstance = User.get(params.id as long)
         if (userInstance.balance) {
             userInstance.balance = userInstance.balance.toStandardHours().plus(1).toStandardDuration() as Duration
         } else {
             userInstance.balance = new Duration(0)
             userInstance.balance = userInstance.balance.toStandardHours().plus(1).toStandardDuration() as Duration
         }
+
         userInstance.save(failOnError: true)
         render(contentType: "text/json") {
             newBalance = userInstance.balance.standardHours

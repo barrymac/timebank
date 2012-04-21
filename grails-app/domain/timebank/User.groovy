@@ -2,22 +2,26 @@ package timebank
 
 import org.joda.time.Duration
 import org.joda.time.LocalDate
+import org.joda.time.contrib.hibernate.PersistentDuration
 
 class User {
 
-    static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
-    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange, offeredSkills: UserSkill, createdRequests: Request, referees: Referee]
+//    static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
+//    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange, offeredSkills: UserSkill, createdRequests: Request, referees: Referee]
+    static hasMany = [openIds: OpenID, offeredSkills: UserSkill]
 
     String firstName
     String secondName
-    def Address address
+    String address1
+    String address2
+    String postcode
     LocalDate dob
     String type
     String phoneNumber
     String email
-    SortedSet<Exchange> exchangesProvided
-    SortedSet<Exchange> exchangesReceived
-    SortedSet<Request> createdRequests
+//    SortedSet<Exchange> exchangesProvided
+//    SortedSet<Exchange> exchangesReceived
+//    SortedSet<Request> createdRequests
 //    SortedSet<Skill> offeredSkills
     Duration balance
 
@@ -29,20 +33,23 @@ class User {
     boolean passwordExpired
 
     static constraints = {
+        username blank: false, unique: true
         firstName blank: true, nullable: true
         secondName blank: true, nullable: true
-        address nullable: true
+        address1 nullable: true
+        address2 nullable: true
+        postcode nullable: true
+        balance nullable: true
         dob blank: true, nullable: true
-        offeredSkills unique: true
-        username blank: false, unique: true
         password blank: true
         type inList: ['organisation', 'group', 'individual'], blank: true, nullable: true
         phoneNumber length: 1..12, unique: true, matches: /[0-9]/, blank: true, nullable: true
         email blank: true, nullable: true, email: true
+//        offeredSkills unique: true
     }
 
     static mapping = {
-        balance nullable: true, blank: true
+        balance nullable: true, blank: true, type: PersistentDuration
         password column: '`password`'
     }
 

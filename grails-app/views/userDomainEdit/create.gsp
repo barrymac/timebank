@@ -50,11 +50,28 @@
 
                 <tr class="prop">
                     <td valign="top" class="name">
-                        <label for="address"><g:message code="user.address.label" default="Address"/></label>
+                        <label for="address1"><g:message code="user.address1.label" default="Address1"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address', 'errors')}">
-                        <g:select id="address" name="address.id" from="${timebank.Address.list()}" optionKey="id"
-                                  value="${userInstance?.address?.id}" class="many-to-one" noSelection="['null': '']"/>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address1', 'errors')}">
+                        <g:textField name="address1" value="${userInstance?.address1}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="address2"><g:message code="user.address2.label" default="Address2"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'address2', 'errors')}">
+                        <g:textField name="address2" value="${userInstance?.address2}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="postcode"><g:message code="user.postcode.label" default="Postcode"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'postcode', 'errors')}">
+                        <g:textField name="postcode" value="${userInstance?.postcode}"/>
                     </td>
                 </tr>
 
@@ -111,7 +128,6 @@
                     <td valign="top" class="name">
                         <label for="email"><g:message code="user.email.label" default="Email"/></label>
                     </td>
-                </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'email', 'errors')}">
                         <g:field type="email" name="email" value="${userInstance?.email}"/>
                     </td>
@@ -134,6 +150,15 @@
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'accountLocked', 'errors')}">
                         <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}"/>
+                    </td>
+                </tr>
+
+                <tr class="prop">
+                    <td valign="top" class="name">
+                        <label for="balance"><g:message code="user.balance.label" default="Balance"/></label>
+                    </td>
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'balance', 'errors')}">
+                        <joda:periodPicker name="balance" value="${userInstance?.balance}"></joda:periodPicker>
                     </td>
                 </tr>
 
