@@ -19,8 +19,6 @@ class UserProfileController extends UserController {
 
     def editProfile = {
         User userInstance = springSecurityService.currentUser
-        int i = 1
-        i = 1
 
         if (!userInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"

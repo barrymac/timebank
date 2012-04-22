@@ -3,14 +3,14 @@ package timebank
 class UserSkill {
 
     static belongsTo = [user: User, skill: Skill]
-    User user
-    Skill skill
+//    User user = null
+//    Skill skill
 
     static UserSkill link(user, skill) {
         def m = UserSkill.findByUserAndSkill(user, skill)
         if (!m) {
             m = new UserSkill(user: user, skill: skill)
-            user?.addToOfferedSkills(m)
+            user?.addToUserSkills(m)
             skill?.addToSkilledUsers(m)
             m.save()
         }
@@ -20,13 +20,14 @@ class UserSkill {
     static void unlink(user, skill) {
         def m = UserSkill.findByUserAndSkill(user, skill)
         if (m) {
-            user?.removeFromOfferedSkills(m)
+            user?.removeFromUserSkills(m)
             skill?.removeFromSkilledUsers(m)
             m.delete()
         }
     }
 
-    static constraints = {
-        unique: true
-    }
+//    static constraints = {
+//        unique: true
+//    }
+
 }

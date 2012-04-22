@@ -92,12 +92,10 @@
                                                              default="Offered Skills"/></td>
 
                     <td valign="top" style="text-align: left;" class="value">
-                        <ul>
-                            <g:each in="${userInstance.offeredSkills}" var="o">
-                                <li><g:link controller="skill" action="show"
-                                            id="${o.id}">${o?.encodeAsHTML()}</g:link></li>
-                            </g:each>
-                        </ul>
+                        <ul><g:each in="${userInstance.skills()}" var="skill">
+                            <li><g:link controller="skill" action="show"
+                                        id="${skill.id}">${skill?.encodeAsHTML()}</g:link></li>
+                        </g:each></ul>
                     </td>
 
                 </tr>

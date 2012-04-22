@@ -62,14 +62,12 @@
             </g:link>
         </li>
         <sec:ifLoggedIn>
-            <li></li>
         %{--<li>Welcome--}%
         %{--<sec:username/>--}%
         %{--<sec:loggedInUserInfo field="username"/>--}%
         %{--</li>--}%
         %{--<li>Balance: ${session.balance}</li>--}%
             <li><g:link controller="userProfile" action="editProfile" params="">My Profile</g:link></li>
-            <li><g:link controller="logout">Log out</g:link></li>
             <sec:ifAllGranted roles="ROLE_ADMIN">
             %{--<li><g:link controller="offer" action="create" params="">Offer a Skill</g:link></li>--}%
             %{--<li><g:link controller="request" action="create">Make a Request</g:link></li>--}%
@@ -81,6 +79,9 @@
                 <li><g:link controller="user" action="create">Add User</g:link></li>
                 <li><g:link controller="userProfile" action="list">List People</g:link></li>
             </sec:ifAllGranted>
+
+            <li></li>
+            <li><g:link controller="logout">Log out</g:link></li>
 
             <g:form url='[controller: "searchable", action: "index"]' id="searchableForm" name="searchableForm"
                     method="get" class="col_2">

@@ -4,12 +4,15 @@ class Skill implements Comparable {
 
     static hasMany = [skilledUsers: UserSkill]
 
+    User user = null
+
     String name
     String description
 
     static constraints = {
         name unique: true
         description nullable: true
+        user display: false, nullable: true
     }
 
     @Override
@@ -22,23 +25,22 @@ class Skill implements Comparable {
             spellCheck: ['name']
     ]
 
-
-    int compareTo(other) {
-        return name.compareTo(other.name)
-    }
-
-    List users() {
+    List skilledUsers() {
         return UserSkill.collect {it.user}
     }
 
-    List addToUsers(User user) {
+    List addToSkilledUsers(User user) {
         UserSkill.link(this, user)
-        return users()
+        return skilledUsers()
     }
 
-    List removeFromUsers(User user) {
+    List removeFromSkilledUsers(User user) {
         UserSkill.unlink(this, user)
-        return users()
+        return skilledUsers()
+    }
+
+    int compareTo(other) {
+        return name.compareTo(other.name)
     }
 
 

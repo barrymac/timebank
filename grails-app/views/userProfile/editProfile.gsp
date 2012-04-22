@@ -4,15 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="layout" content="main"/>
     <title><g:message code="default.edit.profile"/></title>
-    <script>
-        $(document).ready(function () {
-            $("#txtSkill").focus().autocomplete({
-                minLength:2,
-                cache:false,
-                source:"${createLink( action: 'ajaxSkillSearch')}"
-            });
-        });
-    </script>
+    <g:include view="ajax/addSkills.gsp"/>
 </head>
 
 <body>
@@ -82,17 +74,15 @@
                         <label for="offeredSkills"><g:message code="user.offeredSkills.label"
                                                               default="Offered Skills"/></label>
                     </td>
-                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'offeredSkills', 'errors')}">
-                        <g:select name="offeredSkills" from="${timebank.Skill.list()}" multiple="multiple"
-                                  optionKey="id" optionValue="name" size="5" value="${userInstance?.offeredSkills*.id}"
-                                  class="many-to-many"/>
-                        <br>
-                        <g:form action="addSkill"><g:textField name="txtSkill"/><g:actionSubmit value="Add Skill"
-                                                                                                action="addSkill"
-                                                                                                id="btnAddSkill"/></g:form>
-                        %{--<br>--}%
-                        %{--<g:actionSubmit value="Suggest Skill" action="suggestSkill" id="btnSuggestSkill"/>--}%
-                        %{--<g:textField name="txtSuggestSkill" id="txtSuggestSkill"/>--}%
+                    <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'skills', 'errors')}">
+                        <div id="skillsDiv">
+                            <ul><g:each in="${userInstance.skills()}" var="skill">
+                                <li><g:link controller="skill" action="show"
+                                            id="${skill.id}">${skill?.encodeAsHTML()}</g:link></li>
+                            </g:each></ul>
+                        </div>
+                        <g:textField name="txtSkill"/>
+                        <input id="btnAddSkill" value="Add Skill" type="button">
                     </td>
                 </tr>
 

@@ -7,8 +7,10 @@ import org.joda.time.contrib.hibernate.PersistentDuration
 class User {
 
 //    static mappedBy = [exchangesProvided: 'provider', exchangesReceived: 'receiver']
-//    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange, offeredSkills: UserSkill, createdRequests: Request, referees: Referee]
-    static hasMany = [openIds: OpenID, offeredSkills: UserSkill]
+//    static hasMany = [openIds: OpenID, exchangesProvided: Exchange, exchangesReceived: Exchange, skills: UserSkill, createdRequests: Request, referees: Referee]
+    static hasMany = [openIds: OpenID, skills: Skill, userSkills: UserSkill]
+    static mappedBy = [skills: "user"]
+
 
     String firstName
     String secondName
@@ -22,7 +24,7 @@ class User {
 //    SortedSet<Exchange> exchangesProvided
 //    SortedSet<Exchange> exchangesReceived
 //    SortedSet<Request> createdRequests
-//    SortedSet<Skill> offeredSkills
+//    SortedSet<Skill> skills
     Duration balance
 
     String username
@@ -45,7 +47,7 @@ class User {
         userType inList: ["individual", "organisation", "group"]
         phoneNumber length: 1..12, unique: true, matches: /[0-9]/, blank: true, nullable: true
         email blank: true, nullable: true, email: true
-//        offeredSkills unique: true
+//        skills unique: true
     }
 
     static mapping = {
@@ -65,18 +67,24 @@ class User {
 //        }
 //    }
 
-    List offeredSkills() {
-//        return UserSkill.collect {it.skill}
+    List skills() {
+        return userSkills.collect {
+            int i = 1
+            i = 1
+            it.skill
+        }
     }
 
-    List addToOfferedSkills(Skill skill) {
+    List addToSkills(Skill skill) {
+        int i = 1
+        i = 1
         UserSkill.link(this, skill)
-        return offeredSkills()
+        return skills()
     }
 
-    List removeFromOfferedSkills(Skill skill) {
+    List removeFromSkills(Skill skill) {
         UserSkill.unlink(this, skill)
-        return offeredSkills()
+        return skills()
     }
 
     Set<Role> getAuthorities() {
