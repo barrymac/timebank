@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69a29204-034e-42f4-b7bc-45952fdc61d9" name="Default" comment="very basic profile editing and user creation working now">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/ajax/addSkills.gsp" />
+    <list default="true" id="69a29204-034e-42f4-b7bc-45952fdc61d9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/timebank/AjaxController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/timebank/AjaxController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/timebank/Skill.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/Skill.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/timebank/UserSkill.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/timebank/UserSkill.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/user/edit.gsp" afterPath="$PROJECT_DIR$/grails-app/views/user/edit.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/userDomainEdit/edit.gsp" afterPath="$PROJECT_DIR$/grails-app/views/userDomainEdit/edit.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" afterPath="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/userProfile/editUserProfile.gsp" afterPath="$PROJECT_DIR$/grails-app/views/userProfile/editUserProfile.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp" afterPath="$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp" />
     </list>
     <ignored path="timebank.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +62,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" line="121" class="timebank.User" package="timebank">
+      <breakpoint url="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" line="108" class="timebank.User" package="timebank">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -166,13 +155,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="User.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="User.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
           <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="-6.409091">
+            <state line="49" column="0" selection-start="1614" selection-end="1614" vertical-scroll-proportion="-1.8473581">
               <folding />
             </state>
           </provider>
@@ -184,7 +173,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="674" selection-end="674" vertical-scroll-proportion="-9.477273">
+            <state line="11" column="81" selection-start="301" selection-end="301" vertical-scroll-proportion="-3.6818182">
               <folding />
             </state>
           </provider>
@@ -223,10 +212,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateBalance.gsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="updateBalance.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="58" selection-start="3786" selection-end="3786" vertical-scroll-proportion="0.46850392">
+            <state line="97" column="57" selection-start="4151" selection-end="4151" vertical-scroll-proportion="-6.6595745">
               <folding />
             </state>
           </provider>
@@ -263,9 +252,7 @@
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/timebank/AjaxController.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state line="47" column="0" selection-start="1640" selection-end="1640" vertical-scroll-proportion="-13.043478">
-              <folding>
-                <element signature="e#18#47#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -292,13 +279,13 @@
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/ClassGroup.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/Skill.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/UserSkill.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/timebank/AjaxController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/timebank/UserProfileController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/userProfile/editUserProfile.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/ajax/addSkills.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/domain/timebank/User.groovy" />
       </list>
     </option>
   </component>
@@ -515,6 +502,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timebank" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -947,7 +938,11 @@
       <created>1335022346501</created>
       <updated>1335022346501</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="adding skills now working nicely in profile edit pages">
+      <created>1335110917909</created>
+      <updated>1335110917909</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1020,7 +1015,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="very basic profile editing and user creation working now" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding skills now working nicely in profile edit pages" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1033,7 +1028,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="profile update nearly working" />
     <MESSAGE value="profile updates working" />
     <MESSAGE value="fixed requests page" />
     <MESSAGE value="added autocomplete skills and adding to profile" />
@@ -1058,6 +1052,7 @@
     <MESSAGE value="added null check to add and subtract hours" />
     <MESSAGE value="fixed some mysql specific bugs regarding relationships with offered skills and users" />
     <MESSAGE value="very basic profile editing and user creation working now" />
+    <MESSAGE value="adding skills now working nicely in profile edit pages" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -1149,52 +1144,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/ClassMembership.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="36" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.7045455">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/UserSkill.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="674" selection-end="674" vertical-scroll-proportion="-9.477273">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/Student.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="24" selection-end="24" vertical-scroll-proportion="4.431818">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="2318" selection-end="2318" vertical-scroll-proportion="-6.409091">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/timebank/AjaxController.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="0" selection-start="1640" selection-end="1640" vertical-scroll-proportion="-13.043478">
-          <folding>
-            <element signature="e#18#47#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1219,6 +1172,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="57" selection-start="4151" selection-end="4151" vertical-scroll-proportion="-6.6595745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/editUserProfile.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="30" selection-start="250" selection-end="250" vertical-scroll-proportion="-1.9148936">
@@ -1226,9 +1186,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/Student.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="58" selection-start="3786" selection-end="3786" vertical-scroll-proportion="0.46850392">
+        <state line="2" column="6" selection-start="24" selection-end="24" vertical-scroll-proportion="4.431818">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/ClassMembership.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="36" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.7045455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/UserSkill.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="81" selection-start="301" selection-end="301" vertical-scroll-proportion="-3.6818182">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/timebank/User.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1614" selection-end="1614" vertical-scroll-proportion="-1.8473581">
           <folding />
         </state>
       </provider>

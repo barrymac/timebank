@@ -47,25 +47,12 @@ class User {
         userType inList: ["individual", "organisation", "group"]
         phoneNumber length: 1..12, unique: true, matches: /[0-9]/, blank: true, nullable: true
         email blank: true, nullable: true, email: true
-//        skills unique: true
     }
 
     static mapping = {
         balance nullable: true, blank: true, type: PersistentDuration
         password column: '`password`'
     }
-
-//    def getBalance() {
-//        int i = 1
-//        i = 1
-//        if (balance) {
-//            println("balance: ${balance.toStandardHours().hours}")
-//            return balance.toStandardHours().hours
-//        } else {
-//            balance = new Duration(0)
-//            return balance.toStandardHours().hours
-//        }
-//    }
 
     List skills() {
         return userSkills.collect {
