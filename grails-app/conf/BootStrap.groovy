@@ -1,3 +1,6 @@
+import grails.validation.ValidationException
+import org.joda.time.Duration
+import org.springframework.util.ResourceUtils
 import timebank.Role
 import timebank.User
 import timebank.UserRole
@@ -35,8 +38,37 @@ class BootStrap {
         thisuser = User.findByUsername("stravick")
         UserRole.create thisuser, roleAdmin
 
+//        switch (GrailsUtil.environment) {
+//            case 'development':
+        def ant = new AntBuilder()
+        ant.copy(todir: 'target/classes') {
+            fileset(dir: 'grails-app/resources')
+        }
+//                break
+//        }
+
+        def importedFile = ResourceUtils.getFile("classpath:CurrentUserDatabaseOnlyBalances.csv")
+        assert importedFile instanceof File
+
+        importedFile.splitEachLine(',') {fields ->
+            try {
+                def minutes = ((fields[1] as float) * 60) as int
+                def legacyUser = new User(username: fields[0].split()[0],
+                        firstName: fields[0].split()[0],
+                        secondName: fields[0].split()[1],
+                        password: 'changeme',
+                        balance: new Duration(0).toStandardMinutes().plus(minutes).toStandardDuration() as Duration)
+                        .save(failOnError: true)
+                UserRole.create legacyUser, roleUser
+            } catch (NumberFormatException e) {
+                println "balance ${fields[1]} didn't import for ${fields[0]}"
+            } catch (ValidationException e) {
+//                println e
+            }
+        }
+
+        def destroy = {
+        }
     }
 
-    def destroy = {
-    }
 }
