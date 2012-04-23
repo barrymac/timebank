@@ -53,9 +53,11 @@ class BootStrap {
         importedFile.splitEachLine(',') {fields ->
             try {
                 def minutes = ((fields[1] as float) * 60) as int
-                def legacyUser = new User(username: fields[0].split()[0],
-                        firstName: fields[0].split()[0],
-                        secondName: fields[0].split()[1],
+                def firstname = fields[0].split()[0]
+                def secondName = fields[0].split()[1]
+                def legacyUser = new User(username: firstname + secondName,
+                        firstName: firstname,
+                        secondName: secondName,
                         password: 'changeme',
                         balance: new Duration(0).toStandardMinutes().plus(minutes).toStandardDuration() as Duration)
                         .save(failOnError: true)

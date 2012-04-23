@@ -1,5 +1,3 @@
-import grails.util.GrailsUtil
-
 /**
  * This {@link groovy.util.ConfigObject} script provides Grails Searchable Plugin configuration.
  *
@@ -34,7 +32,7 @@ searchable {
      * The default is "${user.home}/.grails/projects/${app.name}/searchable-index/${grails.env}"
      */
     compassConnection = new File(
-            "/tmp/${appName}/searchable-index/${GrailsUtil.environment}"
+            "${user.home}/.grails/projects/${app.name}/searchable-index/${grails.env}"
     ).absolutePath
 
     /**

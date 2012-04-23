@@ -4,7 +4,8 @@
     <list default="true" id="69a29204-034e-42f4-b7bc-45952fdc61d9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Searchable.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Searchable.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timebank.iml" afterPath="$PROJECT_DIR$/timebank.iml" />
     </list>
     <ignored path="timebank.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -159,7 +160,7 @@
       <file leaf-file-name="BootStrap.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="87" selection-start="2521" selection-end="2521" vertical-scroll-proportion="0.0">
+            <state line="57" column="72" selection-start="2766" selection-end="2766" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -167,10 +168,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Searchable.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/conf/Searchable.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="85" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.7175141">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="3805" selection-end="3805" vertical-scroll-proportion="0.6177024">
+            <state line="91" column="0" selection-start="3805" selection-end="3805" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -245,7 +255,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/domain/timebank/Student.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/ClassGroup.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/Skill.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/timebank/UserSkill.groovy" />
@@ -259,8 +268,9 @@
         <option value="$PROJECT_DIR$/application.properties" />
         <option value="$PROJECT_DIR$/scripts/ImportUsers.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/Searchable.groovy" />
       </list>
     </option>
   </component>
@@ -877,7 +887,11 @@
       <created>1335138938439</created>
       <updated>1335138938439</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added some more logging to boostrap import errors">
+      <created>1335139756340</created>
+      <updated>1335139756340</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -950,7 +964,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added legacy users import to bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some more logging to boostrap import errors" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -963,7 +977,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="added autocomplete skills and adding to profile" />
     <MESSAGE value="profile skills saving now" />
     <MESSAGE value="some work on account balance" />
     <MESSAGE value="some work on statement of exchange provided" />
@@ -988,6 +1001,7 @@
     <MESSAGE value="adding skills now working nicely in profile edit pages" />
     <MESSAGE value="small tidy up" />
     <MESSAGE value="added legacy users import to bootstrap" />
+    <MESSAGE value="added some more logging to boostrap import errors" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -1031,13 +1045,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/editProfile.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="3808" selection-end="3808" vertical-scroll-proportion="0.029469548">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/userProfile/updateBalance.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="57" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.3222004">
@@ -1134,18 +1141,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="0" selection-start="3805" selection-end="3805" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="87" selection-start="2521" selection-end="2521" vertical-scroll-proportion="0.0">
+        <state line="57" column="72" selection-start="2766" selection-end="2766" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Searchable.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="3805" selection-end="3805" vertical-scroll-proportion="0.6177024">
+        <state line="36" column="85" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.7175141">
           <folding />
         </state>
       </provider>
