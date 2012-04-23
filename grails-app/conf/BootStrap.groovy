@@ -1,3 +1,4 @@
+import grails.util.GrailsUtil
 import grails.validation.ValidationException
 import org.joda.time.Duration
 import org.springframework.util.ResourceUtils
@@ -38,36 +39,37 @@ class BootStrap {
         thisuser = User.findByUsername("stravick")
         UserRole.create thisuser, roleAdmin
 
-//        switch (GrailsUtil.environment) {
-//            case 'development':
-        def ant = new AntBuilder()
-        ant.copy(todir: 'target/classes') {
-            fileset(dir: 'grails-app/resources')
-        }
-//                break
-//        }
+        switch (GrailsUtil.environment) {
+            case 'development':
+                def ant = new AntBuilder()
+                ant.copy(todir: 'target/classes') {
+                    fileset(dir: 'grails-app/resources')
+                }
+                def importedFile = ResourceUtils.getFile("classpath:CurrentUserDatabaseOnlyBalances.csv")
+                assert importedFile instanceof File
 
-        def importedFile = ResourceUtils.getFile("classpath:CurrentUserDatabaseOnlyBalances.csv")
-        assert importedFile instanceof File
+                importedFile.splitEachLine(',') {fields ->
+                    try {
+                        def minutes = ((fields[1] as float) * 60) as int
+                        def firstname = fields[0].split()[0]
+                        def secondName = fields[0].split()[1]
+                        def legacyUser = new User(username: firstname + secondName,
+                                firstName: firstname,
+                                secondName: secondName,
+                                password: 'changeme',
+                                balance: new Duration(0).toStandardMinutes().plus(minutes).toStandardDuration() as Duration)
+                                .save(failOnError: true)
+                        UserRole.create legacyUser, roleUser
+                    } catch (NumberFormatException e) {
+                        println "balance ${fields[1]} didn't import for ${fields[0]}"
+                    } catch (ValidationException e) {
+                        println "${fields[0]} didn't import, probable duplicate username"
+                    }
+                }
 
-        importedFile.splitEachLine(',') {fields ->
-            try {
-                def minutes = ((fields[1] as float) * 60) as int
-                def firstname = fields[0].split()[0]
-                def secondName = fields[0].split()[1]
-                def legacyUser = new User(username: firstname + secondName,
-                        firstName: firstname,
-                        secondName: secondName,
-                        password: 'changeme',
-                        balance: new Duration(0).toStandardMinutes().plus(minutes).toStandardDuration() as Duration)
-                        .save(failOnError: true)
-                UserRole.create legacyUser, roleUser
-            } catch (NumberFormatException e) {
-                println "balance ${fields[1]} didn't import for ${fields[0]}"
-            } catch (ValidationException e) {
-                println "${fields[0]} didn't import, probable duplicate username"
-            }
+                break
         }
+
 
         def destroy = {
         }
