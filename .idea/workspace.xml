@@ -897,7 +897,11 @@
       <created>1335140649430</created>
       <updated>1335140649430</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="switched datasource modes between prod and dev">
+      <created>1335140894773</created>
+      <updated>1335140894773</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -970,7 +974,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="made import only run in dev mode bue to ant dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="switched datasource modes between prod and dev" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -983,7 +987,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="some work on statement of exchange provided" />
     <MESSAGE value="trying out facebook connect" />
     <MESSAGE value="disabling fbconnect on production site" />
     <MESSAGE value="reverted user pages to spring ui , facebook connect login appears to work, balance is in profile but in milliseconds, added account service stub, can add skills to profile but not checking unique constraint" />
@@ -1008,6 +1011,7 @@
     <MESSAGE value="added some more logging to boostrap import errors" />
     <MESSAGE value="trying fulluserNames in import and changed search engine index path to tomcat home" />
     <MESSAGE value="made import only run in dev mode bue to ant dependency" />
+    <MESSAGE value="switched datasource modes between prod and dev" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />

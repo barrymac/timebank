@@ -22,8 +22,8 @@ environments {
             password = "mysql"
             dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
 
-            dbCreate = "create-drop"
-//            dbCreate = "update"
+//            dbCreate = "create-drop"
+            dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/timebank?autoReconnect=true"
         }
     }
