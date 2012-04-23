@@ -63,7 +63,7 @@ class BootStrap {
             } catch (NumberFormatException e) {
                 println "balance ${fields[1]} didn't import for ${fields[0]}"
             } catch (ValidationException e) {
-//                println e
+                println "${fields[0]} didn't import, probable duplicate username"
             }
         }
 

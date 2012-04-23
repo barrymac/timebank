@@ -79,6 +79,16 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+    appenders {
+//        'null' name: "stacktrace"
+        appender new org.apache.log4j.DailyRollingFileAppender(name: "file",
+                layout: pattern(conversionPattern: '%c{2} %m%n'),
+                file: "${System.getProperty('catalina.base') ? System.getProperty('catalina.base') : 'target'}/logs/${appName}.log",
+                datePattern: "'.'yyyy-MM-dd")
+    }
+    root {
+        info 'file'
+    }
 
     error 'org.codehaus.groovy.grails.web.servlet',  //  controllers
             'org.codehaus.groovy.grails.web.pages', //  GSP
