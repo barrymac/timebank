@@ -23,6 +23,7 @@
         <datasource-map>
           <unit-entry name="Gorm" />
         </datasource-map>
+        <naming-strategy-map />
       </configuration>
     </facet>
   </component>
@@ -90,42 +91,16 @@
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="grails-1.3.7" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.2.4" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (timebank-grailsPlugins)">
         <CLASSES>
           <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/tomcat-1.3.7/lib" />
           <root url="file://$USER_HOME$/.grails/1.3.7/projects/timebank/plugins/searchable-0.6.3/lib" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.5.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.5.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/net.sourceforge.nekohtml/nekohtml/jars/nekohtml-1.9.14.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.9.1.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/commons-httpclient/commons-httpclient/jars/commons-httpclient-3.1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.openid4java/openid4java-nodeps/jars/openid4java-nodeps-0.9.5.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/javax.activation/activation/jars/activation-1.1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/javax.mail/mail/jars/mail-1.4.3.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security/spring-security-openid/jars/spring-security-openid-3.0.5.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-test/jars/spring-test-3.1.0.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/dumbster/dumbster/jars/dumbster-1.6.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/junit/junit/jars/junit-3.8.1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-core/jars/grails-datastore-core-1.0.0.RC1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-1.0.0.RC1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-gorm-plugin-support/jars/grails-datastore-gorm-plugin-support-1.0.0.RC1.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.0.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-simple/jars/grails-datastore-simple-1.0.0.RC1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.grails/grails-datastore-gorm-test/jars/grails-datastore-gorm-test-1.0.0.RC1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security/spring-security-config/jars/spring-security-config-3.0.3.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-expression/jars/spring-expression-3.0.3.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-aop/jars/spring-aop-3.0.3.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.0.3.RELEASE.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-asm/jars/spring-asm-3.0.3.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.0.3.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.0.3.RELEASE.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.springframework.security.oauth/spring-security-oauth/jars/spring-security-oauth-1.0.0.M3.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.18.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/joda-time/joda-time-hibernate/jars/joda-time-hibernate-1.2.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.jadira.usertype/usertype.spi/jars/usertype.spi-2.0.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.jadira.usertype/usertype.jodatime/jars/usertype.jodatime-2.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
